@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="mssolutions.skymedic1"
+
+    >
+    <uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="SkyMedic"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        >
+        <application
+            android:name="mssolutions.skymedic1.app.AppController"
+            android:allowBackup="true"
+            android:icon="@mipmap/ic_launcher"></application>
+
+        <application
+            android:name="mssolutions.skymedic1.app.AppController"
+            android:allowBackup="true"
+            android:icon="@mipmap/ic_launcher"></application>
+
+
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait">
+
+
+
+        </activity>
+        <activity
+            android:name=".error_main"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait">
+
+
+
+        </activity>
+
+
+
+        <activity
+            android:name=".activity_busqueda"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait">
+
+
+
+        </activity>
+
+
+        <activity
+            android:name=".activity_internet"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait">
+
+
+
+        </activity>
+
+
+        <activity
+            android:name=".activity_error"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait">
+
+
+
+                   </activity>
+
+
+
+        <activity
+            android:name=".Activity_especialidades"
+            android:label="Especialidades"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+
+        <activity android:name=".SplashScreenActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+        <activity android:name=".layout_clinica"
+            android:label="Clinicas"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+
+        <activity
+            android:name=".layout_deschombre"
+            android:label="Doctor"
+            android:theme="@style/AppTheme.NoActionBar">
+
+
+
+        </activity>
+
+        <activity
+            android:name=".layout_descmujer"
+            android:label="Doctora"
+            android:theme="@style/AppTheme.NoActionBar">
+
+
+
+        </activity>
+
+        <activity android:name=".layout_contacto"
+            android:label="Contacto"
+            android:theme="@style/AppTheme.NoActionBar">
+
+
+
+        </activity>
+
+
+        <activity android:name=".especialidad"
+            android:label="SkyMedic"
+            android:theme="@style/AppTheme.NoActionBar">
+
+
+
+        </activity>
+
+
+
+    </application>
+
+</manifest>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#02CCEC</color>
+    <color name="colorPrimaryDark">#00b7d4</color>
+    <color name="colorAccent">#02ccec</color>
+    <color name="descMujer">#fe797a</color>
+    <color name="descHombre">#6dbcd4</color>
+    <color name="fondoBlanco">#fff</color>
+    <color name="FondoGris">#f2f2f2</color>
+    <color name="Letras">#8a000000</color>
+</resources>

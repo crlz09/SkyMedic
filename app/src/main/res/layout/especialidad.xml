@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context="mssolutions.skymedic1.MainActivity"
+        android:orientation="vertical"
+        >
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+        </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:background="?@android:attr/selectableItemBackground"
+        android:backgroundTint="@android:color/white"
+        android:clickable="false"
+        android:focusable="false"
+        android:orientation="horizontal"
+        android:layout_marginBottom="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:weightSum="11">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="3">
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@mipmap/alergologia"
+                android:id="@+id/ima"
+                android:gravity="center_vertical"
+
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="2dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textSize="18sp"
+                android:text="ALERGOLOGIA"
+                android:textAlignment="inherit"
+                android:paddingLeft="8dp"
+                android:gravity="center_vertical"
+                android:layout_marginTop="5dp"
+                android:textColor="#a0a0a0"
+                android:layout_weight="0.54"
+                android:id="@+id/especializacion"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:background="?@android:attr/selectableItemBackground"
+            android:backgroundTint="@android:color/white"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_weight="8"
+            android:onClick="abre_dialogo"
+            android:id="@+id/filtro">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="FILTRAR"
+                android:gravity="center_vertical"
+                android:layout_marginTop="5dp"
+
+                android:paddingLeft="5dp" />
+
+            <ImageView
+                android:layout_marginTop="3dp"
+                android:src="@mipmap/ubicacion"
+                android:gravity="center_vertical"
+
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="9.37"
+            android:backgroundTint="@android:color/white"
+            android:orientation="vertical"
+            android:paddingLeft="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:id="@+id/especialidadunica">
+
+
+
+
+            <!--<LinearLayout
+                android:background="?@android:attr/selectableItemBackground"
+                android:backgroundTint="@android:color/white"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/dr_1"
+                android:paddingBottom="10dp">
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@mipmap/doctor"
+                    android:id="@+id/imaespec1"
+                    android:gravity="center_vertical" />
+
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Ezequiel Ordoñez"
+                        android:layout_weight="9"
+                        android:textSize="20sp"
+                        android:gravity="center_vertical"
+                        android:id="@+id/nomdrespec1"
+                        android:layout_marginLeft="0dp"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="San Juan de los Morros"
+                        android:textColor="@color/descHombre"
+                        android:layout_weight="9"
+                        android:textSize="14sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"
+                        android:id="@+id/espec1" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:background="?@android:attr/selectableItemBackground"
+                android:backgroundTint="@android:color/white"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:id="@+id/dr_2">
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@mipmap/doctora"
+                    android:gravity="center_vertical"
+                    android:id="@+id/imaespec2" />
+
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="María Laura García"
+                        android:layout_weight="9"
+                        android:textSize="20sp"
+                        android:gravity="center_vertical"
+                        android:id="@+id/nomdrespec2"
+                        android:layout_marginLeft="0dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Maracaibo"
+                        android:textColor="@color/descMujer"
+                        android:layout_weight="9"
+                        android:textSize="14sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"
+                        android:id="@+id/espec2" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="?@android:attr/selectableItemBackground"
+                android:backgroundTint="@android:color/white"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:id="@+id/dr_3">
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@mipmap/doctor"
+                    android:gravity="center_vertical"
+                    android:id="@+id/imaespec3" />
+
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Ricardo Alvarez"
+                        android:layout_weight="9"
+                        android:textSize="20sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"
+                        android:id="@+id/nomdrespec3" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Valencia"
+                        android:textColor="@color/descHombre"
+                        android:layout_weight="9"
+                        android:textSize="14sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"
+                        android:id="@+id/espec3" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="?@android:attr/selectableItemBackground"
+                android:backgroundTint="@android:color/white"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:id="@+id/dr_4">
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@mipmap/doctora"
+                    android:gravity="center_vertical"
+                    android:id="@+id/imaespec4" />
+
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Carolina Colmenares"
+                        android:layout_weight="9"
+                        android:textSize="20sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"
+                        android:id="@+id/nomdrespec4" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="San Félix"
+                        android:textColor="@color/descMujer"
+                        android:layout_weight="9"
+                        android:textSize="14sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"
+                        android:id="@+id/espec4" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="?@android:attr/selectableItemBackground"
+                android:backgroundTint="@android:color/white"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/dr_5">
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@mipmap/doctor"
+                    android:gravity="center_vertical"
+                    android:id="@+id/imaespec5" />
+
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Jean Abdul"
+                        android:layout_weight="9"
+                        android:textSize="20sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"
+                        android:id="@+id/nomdrespec5" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="San Carlos"
+                        android:textColor="@color/descHombre"
+                        android:layout_weight="9"
+                        android:textSize="14sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"
+                        android:id="@+id/espec5" />
+                </LinearLayout>
+
+
+            </LinearLayout>-->
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>
+
+    <android.support.design.widget.NavigationView
+    android:id="@+id/nav_view"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_gravity="start"
+    android:fitsSystemWindows="true"
+    app:headerLayout="@layout/nav_header_main"
+    app:menu="@menu/activity_main_drawer" />
+
+    </android.support.v4.widget.DrawerLayout>

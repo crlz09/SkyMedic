@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_especialidades"
+            android:title="Especialidades"
+            android:icon="@drawable/ic_especialidad" />
+        <item
+            android:id="@+id/nav_clinicas"
+            android:icon="@drawable/ic_clinicas"
+            android:title="Clinicas" />
+        <item
+            android:id="@+id/nav_farmacias"
+            android:icon="@drawable/ic_farmacias"
+            android:title="Farmacias" />
+        <item
+            android:id="@+id/nav_suscribase"
+            android:icon="@drawable/ic_contactenos"
+            android:title="Suscribase" />
+        <item android:title="Tu Opinión"
+            android:id="@+id/nav_opinion"
+            android:icon="@drawable/ic_opinion" />
+        <item android:title="Acerca de..."
+            android:id="@+id/nav_acercade"
+            android:icon="@drawable/ic_acercade" />
+    </group>
+
+</menu>

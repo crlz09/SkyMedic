@@ -1,0 +1,111 @@
+package mssolutions.skymedic1;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+
+import mssolutions.skymedic1.Activity_especialidades;
+import mssolutions.skymedic1.R;
+import mssolutions.skymedic1.layout_clinica;
+import mssolutions.skymedic1.layout_contacto;
+
+public class error_main extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+
+
+    TextView retry;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main_error);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+        retry = (TextView) findViewById(R.id.retry);
+      // retry.setText("MARDITO DALE CLICK");
+        retry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent principal = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(principal);
+            }
+        });
+
+        for(int i=0; i<6;i++){
+            navigationView.getMenu().getItem(i).setChecked(false);
+        }
+
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+
+        if (id == R.id.nav_especialidades) {
+
+            //Toast.makeText(MainActivity.this, "layout especialidades", Toast.LENGTH_SHORT).show();
+
+            Intent ListSong = new Intent(getApplicationContext(), Activity_especialidades.class);
+            ListSong.putExtra("IDMENU",id);
+            startActivity(ListSong);
+
+
+        } else if (id == R.id.nav_clinicas) {
+
+            Intent ListSong = new Intent(getApplicationContext(), layout_clinica.class);
+
+            ListSong.putExtra("IDMENU",id);
+            startActivity(ListSong);
+        } else if (id == R.id.nav_farmacias) {
+            Intent ListSong = new Intent(getApplicationContext(), layout_clinica.class);
+            ListSong.putExtra("IDMENU",id);
+            startActivity(ListSong);
+        } else if (id == R.id.nav_suscribase) {
+            Intent ListSong = new Intent(getApplicationContext(),layout_contacto.class);
+            ListSong.putExtra("IDMENU",id);
+            startActivity(ListSong);
+
+        } else if (id == R.id.nav_opinion) {
+            Intent ListSong = new Intent(getApplicationContext(), layout_contacto.class);
+            ListSong.putExtra("IDMENU",id);
+            startActivity(ListSong);
+
+        } else if (id == R.id.nav_acercade) {
+
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+
+}
+

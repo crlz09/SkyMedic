@@ -1,0 +1,1443 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context="mssolutions.skymedic1.MainActivity"
+        android:orientation="vertical">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+        </android.support.design.widget.AppBarLayout>
+
+        <ScrollView
+            android:background="?@android:attr/selectableItemBackground"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.91">
+
+            <LinearLayout
+                android:backgroundTint="@android:color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1.91"
+                >
+
+                <LinearLayout
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="2.35"
+                    android:contentDescription="especialidades"
+                    android:id="@+id/alergologia">
+
+                    <ImageView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/alergologia"
+                        android:cropToPadding="false"
+                        android:scaleType="fitCenter" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Alergología"
+                        android:layout_weight="9"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="2.35"
+                    android:id="@+id/anestesiologia">
+
+                    <ImageView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/anestesiologia"
+                        android:gravity="center_vertical" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Anestesiología"
+                        android:layout_weight="9"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="2.35"
+                    android:id="@+id/angiologia">
+
+                    <ImageView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/angiologia"
+                        android:gravity="center_vertical" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Angiología"
+                        android:layout_weight="9"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="2.35"
+                    android:id="@+id/bariatria">
+
+                    <ImageView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/bariatria"
+                        android:gravity="center_vertical"
+                        android:cropToPadding="false"
+                        android:scaleType="fitCenter" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Bariatría"
+                        android:layout_weight="9"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="2.35"
+                    android:id="@+id/cardiologia">
+
+                    <ImageView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/cardiologia"
+                        android:gravity="center_vertical" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Cardiología"
+                        android:layout_weight="9"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:backgroundTint="@android:color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="2.35"
+                    android:id="@+id/cirugia_estetica">
+
+                    <ImageView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/cirugiaestetica"
+                        android:gravity="center_vertical" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Cirugía Estética"
+                        android:layout_weight="9"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:backgroundTint="@android:color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="2.35"
+                    android:id="@+id/cirugiag">
+
+                    <ImageView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/cirugiageneral"
+                        android:gravity="center_vertical"
+                        android:cropToPadding="false"
+                        android:scaleType="fitCenter" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Cirugía General"
+                        android:layout_weight="9"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:backgroundTint="@android:color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="2.35"
+                    android:id="@+id/cirugiamax">
+
+                    <ImageView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/cirugiamaxi"
+                        android:gravity="center_vertical" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Cirugía Maxilar"
+                        android:layout_weight="9"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:backgroundTint="@android:color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="2.35"
+                    android:id="@+id/cirugiap">
+
+                    <ImageView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/cirugiaplastica"
+                        android:gravity="center_vertical" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Cirugía Plástica"
+                        android:layout_weight="9"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:backgroundTint="@android:color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="2.35"
+                    android:id="@+id/dermatologia">
+
+                    <ImageView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/dermatologia"
+                        android:gravity="center_vertical"
+                        android:cropToPadding="false"
+                        android:scaleType="fitCenter" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Dermatología"
+                        android:layout_weight="9"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:backgroundTint="@android:color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="2.35"
+                    android:id="@+id/endocrinologia">
+
+                    <ImageView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/endocrinologia"
+                        android:gravity="center_vertical" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Endocrinología"
+                        android:layout_weight="9"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:backgroundTint="@android:color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="2.35"
+                    android:id="@+id/endoscopia">
+
+                    <ImageView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/endoscopia"
+                        android:gravity="center_vertical" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Endoscopia"
+                        android:layout_weight="9"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:backgroundTint="@android:color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="2.35"
+                    android:id="@+id/fisiatria">
+
+                    <ImageView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/fisiatria"
+                        android:gravity="center_vertical"
+                        android:cropToPadding="false"
+                        android:scaleType="fitCenter" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Fisiatría"
+                        android:layout_weight="9"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:backgroundTint="@android:color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="2.35"
+                    android:id="@+id/gastroente">
+
+                    <ImageView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/gastroenterologia"
+                        android:gravity="center_vertical" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Gastroenterología"
+                        android:layout_weight="9"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:backgroundTint="@android:color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="2.35"
+                    android:id="@+id/geriatria">
+
+                    <ImageView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/geriatria"
+                        android:gravity="center_vertical" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Geriatría"
+                        android:layout_weight="9"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:backgroundTint="@android:color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="2.35"
+                    android:id="@+id/ginecologia">
+
+                    <ImageView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/ginecologia"
+                        android:gravity="center_vertical"
+                        android:cropToPadding="false"
+                        android:scaleType="fitCenter" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Ginecología"
+                        android:layout_weight="9"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:backgroundTint="@android:color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="2.35"
+                    android:id="@+id/hematologia">
+
+                    <ImageView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/hematologia"
+                        android:gravity="center_vertical"
+                        android:cropToPadding="false"
+                        android:scaleType="fitCenter" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Hematología"
+                        android:layout_weight="9"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:backgroundTint="@android:color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="2.35"
+                    android:id="@+id/homeopatia">
+
+                    <ImageView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/homeopatia"
+                        android:gravity="center_vertical"
+                        android:cropToPadding="false"
+                        android:scaleType="fitCenter" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Homeopatía"
+                        android:layout_weight="9"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:backgroundTint="@android:color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="2.35"
+                    android:id="@+id/infectologia">
+
+                    <ImageView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/infectologia"
+                        android:gravity="center_vertical"
+                        android:cropToPadding="false"
+                        android:scaleType="fitCenter" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Infectolgoía"
+                        android:layout_weight="9"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:backgroundTint="@android:color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="2.35"
+                    android:id="@+id/inmunologia">
+
+                    <ImageView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/inmunologia"
+                        android:gravity="center_vertical"
+                        android:cropToPadding="false"
+                        android:scaleType="fitCenter" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Inmunología"
+                        android:layout_weight="9"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:backgroundTint="@android:color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="2.35"
+                    android:id="@+id/medicinadep">
+
+                    <ImageView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/medicinadeporte"
+                        android:gravity="center_vertical"
+                        android:cropToPadding="false"
+                        android:scaleType="fitCenter" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Medicina del Deporte"
+                        android:layout_weight="9"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:backgroundTint="@android:color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="2.35"
+                    android:id="@+id/medicinafor">
+
+                    <ImageView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/medicinaforense"
+                        android:gravity="center_vertical"
+                        android:cropToPadding="false"
+                        android:scaleType="fitCenter" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Medicina Forense"
+                        android:layout_weight="9"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:backgroundTint="@android:color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="2.35"
+                    android:id="@+id/medicinagen">
+
+                    <ImageView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/medicinageneral"
+                        android:gravity="center_vertical"
+                        android:cropToPadding="false"
+                        android:scaleType="fitCenter" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Medicina General"
+                        android:layout_weight="9"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:backgroundTint="@android:color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="2.35"
+                    android:id="@+id/medicinalab">
+
+                    <ImageView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/medicinalaboral"
+                        android:gravity="center_vertical"
+                        android:cropToPadding="false"
+                        android:scaleType="fitCenter" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Medicina Laboral"
+                        android:layout_weight="9"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:backgroundTint="@android:color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="2.35"
+                    android:id="@+id/medicinanuc">
+
+                    <ImageView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/medicinanuclear"
+                        android:gravity="center_vertical"
+                        android:cropToPadding="false"
+                        android:scaleType="fitCenter" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Medicina Nuclear"
+                        android:layout_weight="9"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:backgroundTint="@android:color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="2.35"
+                    android:id="@+id/microcirugia">
+
+                    <ImageView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/microcirugia"
+                        android:gravity="center_vertical"
+                        android:cropToPadding="false"
+                        android:scaleType="fitCenter" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Microcirugía"
+                        android:layout_weight="9"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:backgroundTint="@android:color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="2.35"
+                    android:id="@+id/nefrologia">
+
+                    <ImageView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/nefrologia"
+                        android:gravity="center_vertical"
+                        android:cropToPadding="false"
+                        android:scaleType="fitCenter" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Nefrología"
+                        android:layout_weight="9"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:backgroundTint="@android:color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="2.35"
+                    android:id="@+id/neonatologia">
+
+                    <ImageView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/neonatologia"
+                        android:gravity="center_vertical"
+                        android:cropToPadding="false"
+                        android:scaleType="fitCenter" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Neonatología"
+                        android:layout_weight="9"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:backgroundTint="@android:color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="2.35"
+                    android:id="@+id/neumologia">
+
+                    <ImageView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/neumonologia"
+                        android:gravity="center_vertical"
+                        android:cropToPadding="false"
+                        android:scaleType="fitCenter" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Neumonología"
+                        android:layout_weight="9"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:backgroundTint="@android:color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="2.35"
+                    android:id="@+id/neurocirugia">
+
+                <ImageView
+                    android:layout_marginTop="16dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_weight="1"
+                    android:src="@mipmap/neurocirugia"
+                    android:gravity="center_vertical"
+                    android:cropToPadding="false"
+                    android:scaleType="fitCenter" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="Neurocirugía"
+                    android:layout_weight="9"
+                    android:textSize="18sp"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="0dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:backgroundTint="@android:color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="2.35"
+                    android:id="@+id/neurologia">
+
+                    <ImageView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/neurologia"
+                        android:gravity="center_vertical"
+                        android:cropToPadding="false"
+                        android:scaleType="fitCenter" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Neurología"
+                        android:layout_weight="9"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:backgroundTint="@android:color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="2.35"
+                    android:id="@+id/nutricion">
+
+                    <ImageView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/nutricion"
+                        android:gravity="center_vertical"
+                        android:cropToPadding="false"
+                        android:scaleType="fitCenter" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Nutrición"
+                        android:layout_weight="9"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:backgroundTint="@android:color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="2.35"
+                    android:id="@+id/odontologia">
+
+                    <ImageView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/odontologia"
+                        android:gravity="center_vertical"
+                        android:cropToPadding="false"
+                        android:scaleType="fitCenter" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Odontología"
+                        android:layout_weight="9"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:backgroundTint="@android:color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="2.35"
+                    android:id="@+id/oftalmologia">
+
+                    <ImageView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/oftalmologia"
+                        android:gravity="center_vertical"
+                        android:cropToPadding="false"
+                        android:scaleType="fitCenter" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Oftalmología"
+                        android:layout_weight="9"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:backgroundTint="@android:color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="2.35"
+                    android:id="@+id/oncologia">
+
+                    <ImageView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/oncologia"
+                        android:gravity="center_vertical"
+                        android:cropToPadding="false"
+                        android:scaleType="fitCenter" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Oncología"
+                        android:layout_weight="9"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:backgroundTint="@android:color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="2.35"
+                    android:id="@+id/ortopedia">
+
+                    <ImageView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/ortopedia"
+                        android:gravity="center_vertical"
+                        android:cropToPadding="false"
+                        android:scaleType="fitCenter" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Ortopedia"
+                        android:layout_weight="9"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:backgroundTint="@android:color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="2.35"
+                    android:id="@+id/otorrino">
+
+                    <ImageView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/otorrino"
+                        android:gravity="center_vertical"
+                        android:cropToPadding="false"
+                        android:scaleType="fitCenter" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Otorrino"
+                        android:layout_weight="9"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:backgroundTint="@android:color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="2.35"
+                    android:id="@+id/patologia">
+
+                    <ImageView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/patologia"
+                        android:gravity="center_vertical"
+                        android:cropToPadding="false"
+                        android:scaleType="fitCenter" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Patología"
+                        android:layout_weight="9"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:backgroundTint="@android:color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="2.35"
+                    android:id="@+id/pediatria">
+
+                    <ImageView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/pediatria"
+                        android:gravity="center_vertical"
+                        android:cropToPadding="false"
+                        android:scaleType="fitCenter" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Pediatría"
+                        android:layout_weight="9"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:backgroundTint="@android:color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="2.35"
+                    android:id="@+id/perinatologia">
+
+                    <ImageView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/perinatologia"
+                        android:gravity="center_vertical"
+                        android:cropToPadding="false"
+                        android:scaleType="fitCenter" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Perinatología"
+                        android:layout_weight="9"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:backgroundTint="@android:color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="2.35"
+                    android:id="@+id/proctologia">
+
+                    <ImageView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/proctologia"
+                        android:gravity="center_vertical"
+                        android:cropToPadding="false"
+                        android:scaleType="fitCenter" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Proctología"
+                        android:layout_weight="9"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:backgroundTint="@android:color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="2.35"
+                    android:id="@+id/psiquiatria">
+
+                    <ImageView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/psiquiatria"
+                        android:gravity="center_vertical"
+                        android:cropToPadding="false"
+                        android:scaleType="fitCenter" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Psiquiatría"
+                        android:layout_weight="9"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:backgroundTint="@android:color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="2.35"
+                    android:id="@+id/radiologia">
+
+                    <ImageView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/radiologia"
+                        android:gravity="center_vertical"
+                        android:cropToPadding="false"
+                        android:scaleType="fitCenter" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Radiología"
+                        android:layout_weight="9"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:backgroundTint="@android:color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="2.35"
+                    android:id="@+id/reumatologia">
+
+                    <ImageView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/reumatologia"
+                        android:gravity="center_vertical"
+                        android:cropToPadding="false"
+                        android:scaleType="fitCenter" />
+
+                    <TextView
+
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Reumatología"
+                        android:layout_weight="9"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:backgroundTint="@android:color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="2.35"
+                    android:id="@+id/traumatologia">
+
+                    <ImageView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/traumatologia"
+                        android:gravity="center_vertical"
+                        android:cropToPadding="false"
+                        android:scaleType="fitCenter" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Traumatología"
+                        android:layout_weight="9"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:backgroundTint="@android:color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="2.35"
+                    android:id="@+id/urologia">
+
+                    <ImageView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/urologia"
+                        android:gravity="center_vertical"
+                        android:cropToPadding="false"
+                        android:scaleType="fitCenter" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Urología"
+                        android:layout_weight="9"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="?@android:attr/selectableItemBackground"
+                    android:backgroundTint="@android:color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="2.35"
+                    android:id="@+id/veterinaria">
+
+                    <ImageView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/veterinaria"
+                        android:gravity="center_vertical"
+                        android:cropToPadding="false"
+                        android:scaleType="fitCenter" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Veterinaria"
+                        android:layout_weight="9"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="0dp"/>
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header_main"
+        app:menu="@menu/activity_main_drawer" />
+
+</android.support.v4.widget.DrawerLayout>
