@@ -18,8 +18,6 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
 /**
  * Created by marci y CARLOSMOLINA on 14/6/2017.
  */
@@ -131,12 +129,16 @@ public class layout_clinica  extends AppCompatActivity implements NavigationView
         } else if (id == R.id.nav_farmacias) {
             Intent ListSong = new Intent(getApplicationContext(), layout_clinica.class);
             startActivity(ListSong);
-        } else if (id == R.id.nav_suscribase) {
+        }  else if (id == R.id.nav_suscribase) {
             Intent ListSong = new Intent(getApplicationContext(),layout_contacto.class);
+            ListSong.putExtra("IDMENU",id);
+            ListSong.putExtra("Opcion","Suscribase");
             startActivity(ListSong);
 
         } else if (id == R.id.nav_opinion) {
             Intent ListSong = new Intent(getApplicationContext(), layout_contacto.class);
+            ListSong.putExtra("IDMENU",id);
+            ListSong.putExtra("Opcion","Opinion");
             startActivity(ListSong);
 
         } else if (id == R.id.nav_acercade) {

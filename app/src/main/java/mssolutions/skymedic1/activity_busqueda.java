@@ -96,7 +96,7 @@ public class activity_busqueda extends AppCompatActivity
         UrlFinal = getIntent().getExtras().getString("Url");
 
        consulta = getIntent().getExtras().getString("Consulta");
-
+        //Toast.makeText(this, ""+consulta, Toast.LENGTH_SHORT).show();
 
 
 
@@ -141,15 +141,15 @@ public class activity_busqueda extends AppCompatActivity
                 }catch (Exception ex){}
 
 
-                String urlfinal= urlnombreydesc+descripcion+"&nombre="+query;
+                String urlfinal= "http://arsus.nnbiocliniccenter.com.ve/json/last5.php?nombreee="+query;
 
                 Intent ListSong = new Intent(getApplicationContext(), activity_busqueda.class);
-                ListSong.putExtra("urlfinal123",urlfinal);
+                ListSong.putExtra("Url",urlfinal);
                 ListSong.putExtra("busqueda",true);
                 ListSong.putExtra("Descripcion",descripcion);
-                finish();
+                ListSong.putExtra("Consulta",consulta);
                 startActivity(ListSong);
-
+                finish();
 
                 //makeJsonArrayRequest(urlnombreydesc+descripcion+"&nombre="+query, "nombre");
                 //Toast.makeText(especialidad.this, ""+urlfinal, Toast.LENGTH_SHORT).show();
@@ -601,10 +601,9 @@ public class activity_busqueda extends AppCompatActivity
                         ListSong.putExtra("Url",laurl);
                         ListSong.putExtra("busqueda",true);
                         ListSong.putExtra("Descripcion",descripcion);
-
-
+                        ListSong.putExtra("Consulta",consulta);
                         startActivity(ListSong);
-
+                       // finish();
 
                         dialog.dismiss();
                     }

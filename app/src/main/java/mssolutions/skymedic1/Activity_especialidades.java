@@ -10,19 +10,12 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
-import android.text.Layout;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 
 
 public class Activity_especialidades  extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
@@ -207,14 +200,16 @@ public class Activity_especialidades  extends AppCompatActivity implements Navig
             Intent ListSong = new Intent(getApplicationContext(), layout_clinica.class);
             ListSong.putExtra("IDMENU",id);
             startActivity(ListSong);
-        } else if (id == R.id.nav_suscribase) {
+        }  else if (id == R.id.nav_suscribase) {
             Intent ListSong = new Intent(getApplicationContext(),layout_contacto.class);
             ListSong.putExtra("IDMENU",id);
+            ListSong.putExtra("Opcion","Suscribase");
             startActivity(ListSong);
 
         } else if (id == R.id.nav_opinion) {
             Intent ListSong = new Intent(getApplicationContext(), layout_contacto.class);
             ListSong.putExtra("IDMENU",id);
+            ListSong.putExtra("Opcion","Opinion");
             startActivity(ListSong);
 
         } else if (id == R.id.nav_acercade) {

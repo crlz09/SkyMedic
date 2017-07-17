@@ -1,6 +1,4 @@
 package mssolutions.skymedic1;
-import mssolutions.skymedic1.app.correo;
-
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -24,7 +22,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
+import mssolutions.skymedic1.app.correo;
 
 /**
  * Created by marci on 14/6/2017.
@@ -38,8 +36,8 @@ public class layout_contacto extends AppCompatActivity implements NavigationView
     EditText ETcorreo;
     EditText ETtelefono;
     EditText ETmensaje;
-
-
+    String asunto;
+    int idfinal;
     // Progress dialog
     private ProgressDialog pDialog;
 
@@ -64,7 +62,8 @@ public class layout_contacto extends AppCompatActivity implements NavigationView
         pDialog = new ProgressDialog(this);
         pDialog.setMessage("Por favor espera...");
         pDialog.setCancelable(false);
-
+        asunto= getIntent().getExtras().getString("Opcion");
+       // Toast.makeText(this, ""+asunto, Toast.LENGTH_SHORT).show();
 
         Button enviar = (Button) findViewById(R.id.button);
         final EditText ETnombre = (EditText) findViewById(R.id.ETnombre);
@@ -86,7 +85,8 @@ public class layout_contacto extends AppCompatActivity implements NavigationView
 
                 if (isOnline()){
                     showpDialog();
-                    nuevocorreo.enviarcorreo(ETcorreo.getText().toString(),"Contacto",ETmensaje.getText().toString(),
+
+                    nuevocorreo.enviarcorreo(ETcorreo.getText().toString(),asunto,ETmensaje.getText().toString(),
                             ETtelefono.getText().toString(),ETnombre.getText().toString());
 
                     hidepDialog();
@@ -117,7 +117,11 @@ public class layout_contacto extends AppCompatActivity implements NavigationView
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        navigationView.getMenu().getItem(3).setChecked(true);
+        if (asunto.equals("Suscribase")){
+            navigationView.getMenu().getItem(3).setChecked(true);
+        }else {navigationView.getMenu().getItem(4).setChecked(true); }
+
+       // navigationView.getMenu().getItem(3).setChecked(true);
     }
     @SuppressWarnings("StatementWithEmptyBody")
     public void onBackPressed() {
@@ -193,12 +197,16 @@ public class layout_contacto extends AppCompatActivity implements NavigationView
         } else if (id == R.id.nav_farmacias) {
             Intent ListSong = new Intent(getApplicationContext(), layout_clinica.class);
             startActivity(ListSong);
-        } else if (id == R.id.nav_suscribase) {
+        }   else if (id == R.id.nav_suscribase) {
             Intent ListSong = new Intent(getApplicationContext(),layout_contacto.class);
+            ListSong.putExtra("IDMENU",id);
+            ListSong.putExtra("Opcion","Suscribase");
             startActivity(ListSong);
 
         } else if (id == R.id.nav_opinion) {
             Intent ListSong = new Intent(getApplicationContext(), layout_contacto.class);
+            ListSong.putExtra("IDMENU",id);
+            ListSong.putExtra("Opcion","Opinion");
             startActivity(ListSong);
 
         } else if (id == R.id.nav_acercade) {

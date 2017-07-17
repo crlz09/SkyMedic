@@ -11,15 +11,12 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
-import android.test.suitebuilder.TestMethod;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 /**
  * Created by marci on 14/6/2017.
@@ -166,14 +163,16 @@ MainActivity main = new MainActivity();
             Intent ListSong = new Intent(getApplicationContext(), layout_clinica.class);
             ListSong.putExtra("IDMENU",id);
             startActivity(ListSong);
-        } else if (id == R.id.nav_suscribase) {
+        }  else if (id == R.id.nav_suscribase) {
             Intent ListSong = new Intent(getApplicationContext(),layout_contacto.class);
             ListSong.putExtra("IDMENU",id);
+            ListSong.putExtra("Opcion","Suscribase");
             startActivity(ListSong);
 
         } else if (id == R.id.nav_opinion) {
             Intent ListSong = new Intent(getApplicationContext(), layout_contacto.class);
             ListSong.putExtra("IDMENU",id);
+            ListSong.putExtra("Opcion","Opinion");
             startActivity(ListSong);
 
         } else if (id == R.id.nav_acercade) {

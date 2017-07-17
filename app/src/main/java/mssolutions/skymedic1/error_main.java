@@ -11,11 +11,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import mssolutions.skymedic1.Activity_especialidades;
-import mssolutions.skymedic1.R;
-import mssolutions.skymedic1.layout_clinica;
-import mssolutions.skymedic1.layout_contacto;
-
 public class error_main extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
 
@@ -87,14 +82,16 @@ public class error_main extends AppCompatActivity implements NavigationView.OnNa
             Intent ListSong = new Intent(getApplicationContext(), layout_clinica.class);
             ListSong.putExtra("IDMENU",id);
             startActivity(ListSong);
-        } else if (id == R.id.nav_suscribase) {
+        }  else if (id == R.id.nav_suscribase) {
             Intent ListSong = new Intent(getApplicationContext(),layout_contacto.class);
             ListSong.putExtra("IDMENU",id);
+            ListSong.putExtra("Opcion","Suscribase");
             startActivity(ListSong);
 
         } else if (id == R.id.nav_opinion) {
             Intent ListSong = new Intent(getApplicationContext(), layout_contacto.class);
             ListSong.putExtra("IDMENU",id);
+            ListSong.putExtra("Opcion","Opinion");
             startActivity(ListSong);
 
         } else if (id == R.id.nav_acercade) {

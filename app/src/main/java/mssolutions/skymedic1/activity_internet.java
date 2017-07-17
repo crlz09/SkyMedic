@@ -77,15 +77,17 @@ public boolean onNavigationItemSelected(MenuItem item) {
         Intent ListSong = new Intent(getApplicationContext(), layout_clinica.class);
         ListSong.putExtra("IDMENU",id);
         startActivity(ListSong);
-        } else if (id == R.id.nav_suscribase) {
-        Intent ListSong = new Intent(getApplicationContext(),layout_contacto.class);
-        ListSong.putExtra("IDMENU",id);
-        startActivity(ListSong);
+        }  else if (id == R.id.nav_suscribase) {
+            Intent ListSong = new Intent(getApplicationContext(),layout_contacto.class);
+            ListSong.putExtra("IDMENU",id);
+            ListSong.putExtra("Opcion","Suscribase");
+            startActivity(ListSong);
 
         } else if (id == R.id.nav_opinion) {
-        Intent ListSong = new Intent(getApplicationContext(), layout_contacto.class);
-        ListSong.putExtra("IDMENU",id);
-        startActivity(ListSong);
+            Intent ListSong = new Intent(getApplicationContext(), layout_contacto.class);
+            ListSong.putExtra("IDMENU",id);
+            ListSong.putExtra("Opcion","Opinion");
+            startActivity(ListSong);
 
         } else if (id == R.id.nav_acercade) {
 
