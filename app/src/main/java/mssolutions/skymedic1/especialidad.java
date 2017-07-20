@@ -24,6 +24,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkError;
@@ -107,18 +108,26 @@ public class especialidad extends AppCompatActivity
 
         Busqueda = getIntent().getExtras().getBoolean("busqueda");
         descripcion = getIntent().getExtras().getString("Descripcion");
+        String desc=descripcion;
+
+            if (descripcion.contains(" ")){
+
+                descripcion=descripcion.replace(" ","%20");
+            }
+
         iconoX = getIntent().getExtras().getInt("icono");
 
         ImageView iconoEspe = (ImageView)findViewById(R.id.ima);
         iconoEspe.setImageResource(iconos[iconoX]);
         TextView especializacion = (TextView) findViewById(R.id.especializacion);
-        especializacion.setText(descripcion);
+        especializacion.setText(desc);
        // Toast.makeText(this, ""+descripcion, Toast.LENGTH_LONG).show();
 
         layoutDoctores = (LinearLayout)findViewById(R.id.especialidadunica);
 
         if (!Busqueda) {
-            makeJsonArrayRequest(urlJsonArry+descripcion, "global");
+            Toast.makeText(this, ""+descripcion, Toast.LENGTH_SHORT).show();
+           // makeJsonArrayRequest(urlJsonArry+descripcion, "global");
             //Log.d("Entra en el ","falso");
         }else{
             makeJsonArrayRequest(UrlFinal, "global");
