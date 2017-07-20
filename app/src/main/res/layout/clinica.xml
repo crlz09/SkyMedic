@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/idcli"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:background="?@android:attr/selectableItemBackground"
+    android:backgroundTint="@android:color/white"
+    android:clickable="true"
+    android:focusable="true"
+    >
+
+    <ImageView
+        android:id="@+id/imacli"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical"
+        android:src="@mipmap/doctor" />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/nomcli"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="0dp"
+            android:layout_weight="9"
+            android:gravity="center_vertical"
+            android:paddingTop="15dp"
+            android:text="Ezequiel Ordoñez"
+            android:textColor="@color/Letras"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/ciudadcli"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="0dp"
+            android:gravity="center_vertical"
+            android:text="San Juan de los Morros"
+            android:textColor="@color/descHombre"
+            android:textSize="14sp"
+            android:paddingTop="5dp"/>
+    </LinearLayout>
+</LinearLayout>
