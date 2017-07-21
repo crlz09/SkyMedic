@@ -60,7 +60,7 @@ public boolean onNavigationItemSelected(MenuItem item) {
 
         if (id == R.id.nav_especialidades) {
 
-        //Toast.makeText(MainActivity.this, "layout especialidades", Toast.LENGTH_SHORT).show();
+
 
         Intent ListSong = new Intent(getApplicationContext(), Activity_especialidades.class);
         ListSong.putExtra("IDMENU",id);

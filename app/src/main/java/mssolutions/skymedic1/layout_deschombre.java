@@ -30,26 +30,18 @@ public class layout_deschombre  extends AppCompatActivity implements NavigationV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_descrhombre);
 
-       // Toast.makeText(this, nombre, Toast.LENGTH_SHORT).show();
-       // Toast.makeText(this, espec, Toast.LENGTH_SHORT).show();
-        //final String id = getIntent().getExtras().getString("IDMENU");
         String nom = getIntent().getExtras().getString("nombre");
         String esp = getIntent().getExtras().getString("especialidad");
         String dir = getIntent().getExtras().getString("direccion");
         String tel = getIntent().getExtras().getString("telefono");
         String cor = getIntent().getExtras().getString("correo");
         String ciu = getIntent().getExtras().getString("ciudad");
-
-
-
-
         TextView nombreTV = (TextView) findViewById(R.id.doctor);
         TextView especialidadTV = (TextView) findViewById(R.id.especialidad_doctor);
         TextView direccionTV = (TextView) findViewById(R.id.direccion_doctor);
         TextView telefonoTV = (TextView) findViewById(R.id.telefono_doctor);
         TextView correoTV = (TextView) findViewById(R.id.correo_doctor);
         TextView telf = (TextView) findViewById(R.id.telefono_doctor);
-
         nombreTV.setText(nom);
         especialidadTV.setText(esp);
         direccionTV.setText(dir+"\n"+ciu);
@@ -68,7 +60,6 @@ public class layout_deschombre  extends AppCompatActivity implements NavigationV
             }
         });
 
-        TextView textView = (TextView) findViewById(R.id.textView);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -140,12 +131,8 @@ public class layout_deschombre  extends AppCompatActivity implements NavigationV
         int id = item.getItemId();
 
         if (id == R.id.nav_especialidades) {
-
-            //Toast.makeText(MainActivity.this, "layout especialidades", Toast.LENGTH_SHORT).show();
-
             Intent ListSong = new Intent(getApplicationContext(), Activity_especialidades.class);
             startActivity(ListSong);
-
 
         } else if (id == R.id.nav_clinicas) {
 
@@ -177,8 +164,6 @@ public class layout_deschombre  extends AppCompatActivity implements NavigationV
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
-
 
 
 }

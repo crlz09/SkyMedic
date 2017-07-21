@@ -1,8 +1,15 @@
 package mssolutions.skymedic1;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.MenuItemCompat;
@@ -15,11 +22,14 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 /**
  * Created by marci y CARLOSMOLINA on 14/6/2017.
@@ -28,15 +38,13 @@ import com.squareup.picasso.Picasso;
 public class layout_clinica  extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_clinica);
 
-//        NECESITO RECIBIR:
-//        NOMBRE DE LA CLINICA, DESCRIPCION,TELEFONO, CORREO, DIRECCION,UBICACION,CIUDAD,ESTADO
-
-        String nombre,img,ciudad,desc,estado,direccion,telefono,correo,latitud,longitud;
+        final String nombre,img,ciudad,desc,estado,direccion,telefono,correo,latitud,longitud,tipo;
 
         nombre=getIntent().getExtras().getString("Nombre");
         img=getIntent().getExtras().getString("Imagen");
@@ -48,14 +56,24 @@ public class layout_clinica  extends AppCompatActivity implements NavigationView
         telefono=getIntent().getExtras().getString("Telefono");
         latitud=getIntent().getExtras().getString("Latitud");
         longitud=getIntent().getExtras().getString("Longitud");
+        tipo=getIntent().getExtras().getString("tipo");
 
-        ImageView imagen = (ImageView) findViewById(R.id.imgclinicaf);
+
+
+
+        final ImageView imagen = (ImageView) findViewById(R.id.imgclinicaf);
         TextView TVnombre = (TextView) findViewById(R.id.nombreclinicaf);
         TextView TVciudad = (TextView) findViewById(R.id.ciudadclinicaf);
         TextView TVdesc = (TextView) findViewById(R.id.descclinicaf);
         TextView TVcorreo = (TextView) findViewById(R.id.correoclinicaf);
         TextView TVdireccion = (TextView) findViewById(R.id.direccionclinicaf);
         TextView telf = (TextView) findViewById(R.id.telefonoclinicaf);
+        LinearLayout fondo= (LinearLayout) findViewById(R.id.fondo_cli_far);
+        if (tipo.equals("CLINICA")){
+                fondo.setBackgroundColor((Color.parseColor("#3dbb76")));
+                }else {
+            fondo.setBackgroundColor((Color.parseColor("#1996bd")));
+        }
 
         Picasso.with(getApplicationContext()).load(img).fit().into(imagen);
         TVnombre.setText(nombre);
@@ -76,8 +94,39 @@ public class layout_clinica  extends AppCompatActivity implements NavigationView
         });
 
 
-        TextView textView = (TextView) findViewById(R.id.textView);
 
+        final ImageView image = new ImageView(this);
+
+
+
+        picasso(img,image);
+        final AlertDialog.Builder builder =
+
+               new AlertDialog.Builder(this).setView(image);
+
+
+        builder.setOnDismissListener(new DialogInterface.OnDismissListener() {
+
+            @Override
+            public void onDismiss(DialogInterface dialog) {
+
+                   /* builder.setView(null);
+                dialog.dismiss();*/
+            }
+        });
+
+
+        imagen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                picasso(img,image);
+                if(image.getParent()!=null)
+                    ((ViewGroup)image.getParent()).removeView(image);
+                 builder.show();
+            }
+        });
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -107,7 +156,6 @@ public class layout_clinica  extends AppCompatActivity implements NavigationView
 
         final MenuItem searchItem = menu.findItem(R.id.action_search);
         final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
-        //permite modificar el hint que el EditText muestra por defecto
         searchView.setQueryHint("Busca doctores, clinicas, farmacias");
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -151,8 +199,6 @@ public class layout_clinica  extends AppCompatActivity implements NavigationView
 
         if (id == R.id.nav_especialidades) {
 
-            //Toast.makeText(MainActivity.this, "layout especialidades", Toast.LENGTH_SHORT).show();
-
             Intent ListSong = new Intent(getApplicationContext(), Activity_especialidades.class);
             startActivity(ListSong);
 
@@ -185,8 +231,33 @@ public class layout_clinica  extends AppCompatActivity implements NavigationView
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+    public void picasso(String u, final ImageView im){
+        try{ Picasso.with(layout_clinica.this)
+                .load(u).resize(600,600)
+                .into(new Target() {
+                    @Override
+                    public void onBitmapLoaded (final Bitmap bitmap, Picasso.LoadedFrom from){
+            /* Save the bitmap or do something with it here */
 
+                        //Set it in the ImageView
+                        im.setImageBitmap(bitmap);
+                    }
 
+                    @Override
+                    public void onBitmapFailed(Drawable errorDrawable) {
+
+                    }
+
+                    @Override
+                    public void onPrepareLoad(Drawable placeHolderDrawable) {
+
+                    }
+                });
+
+        } catch (Exception ex) {
+
+        }
+    }
 
 
 }

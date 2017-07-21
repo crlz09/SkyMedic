@@ -24,7 +24,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkError;
@@ -45,29 +44,22 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-//IMPORTS NUEVOS PARA VOLLEY
-//
-
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     TextView textView;
     LinearLayout layoutDoctores, doctores;
     public ArrayList<String> ciudades=new ArrayList<>();
-    public ArrayList<String> nuevasciudades=new ArrayList<>();
-    SwipeRefreshLayout refrescar;
+     SwipeRefreshLayout refrescar;
 public String consulta;
     // json array response url
     private String urlJsonArry = "http://arsus.nnbiocliniccenter.com.ve/json/last5.php?last5";
 
 
     private static String TAG = MainActivity.class.getSimpleName();
-  //  private Button btnMakeObjectRequest, btnMakeArrayRequest;
 
     // Progress dialog
     private ProgressDialog pDialog;
-
-    private TextView txtResponse;
 
     // temporary string to show the parsed response
     private String jsonResponse;
@@ -77,10 +69,6 @@ public String consulta;
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-      //  btnMakeArrayRequest = (Button) findViewById(R.id.btnArrayRequest);
-       // txtResponse = (TextView) findViewById(R.id.txtResponse);
-
 
         pDialog = new ProgressDialog(this);
         pDialog.setMessage("Actualizando");
@@ -107,33 +95,11 @@ public String consulta;
             }
         });
 
-
-
-      //  btnMakeArrayRequest.setOnClickListener(new View.OnClickListener() {
-
-          //  @Override
-          //  public void onClick(View v) {
-                // making json array request
-          //      makeJsonArrayRequest();
-       //     }
-      //  });
-
-
         try {
             makeJsonArrayRequest(urlJsonArry);
-
-
-
-
-
-
-        }
-        catch (Exception e) {
+                } catch (Exception e) {
             throw new RuntimeException(e);
-        }
-
-
-        //hombre
+                 }
 
         //dr1
         LinearLayout layout1 = (LinearLayout) findViewById(R.id.dr1);
@@ -290,8 +256,6 @@ public String consulta;
                 Intent busca = new Intent(getApplicationContext(),activity_busqueda.class);
                 busca.putExtra("Url",urlfinal);
                 busca.putExtra("Consulta",consulta);
-                startActivity(busca);
-               // Toast.makeText(MainActivity.this, query.toString(), Toast.LENGTH_SHORT).show();
                 //se oculta el EditText
                 searchView.setQuery("", false);
                 searchView.setIconified(true);
@@ -333,16 +297,10 @@ public String consulta;
         int id = item.getItemId();
 
         if (id == R.id.nav_especialidades) {
-
-            //Toast.makeText(MainActivity.this, "layout especialidades", Toast.LENGTH_SHORT).show();
-
             Intent ListSong = new Intent(getApplicationContext(), Activity_especialidades.class);
             ListSong.putExtra("IDMENU",id);
             startActivity(ListSong);
-
-
         } else if (id == R.id.nav_clinicas) {
-
             Intent ListSong = new Intent(getApplicationContext(), activity_clinica.class);
             ListSong.putExtra("Tipo","CLINICA");
             startActivity(ListSong);
@@ -355,15 +313,12 @@ public String consulta;
             ListSong.putExtra("IDMENU",id);
             ListSong.putExtra("Opcion","Suscribase");
             startActivity(ListSong);
-
         } else if (id == R.id.nav_opinion) {
             Intent ListSong = new Intent(getApplicationContext(), layout_contacto.class);
             ListSong.putExtra("IDMENU",id);
             ListSong.putExtra("Opcion","Opinion");
             startActivity(ListSong);
-
         } else if (id == R.id.nav_acercade) {
-
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -404,11 +359,6 @@ public String consulta;
                                 String telefono=person.getString("telefonoDoc");
                                 String correo = person.getString("correoDoc");
 
-                                // String relevancia = person.getString("relevancia");
-                                // JSONObject phone = response.getJSONObject("phone");
-                                //  String home = phone.getString("home");
-                                //  String mobile = phone.getString("mobile");
-
                                 ultimos[i][0]= id;
                                 ultimos[i][1]= nombre;
                                 ultimos[i][2]= especialidad;
@@ -417,20 +367,6 @@ public String consulta;
                                 ultimos[i][5]=direccion;
                                 ultimos[i][6]=telefono;
                                 ultimos[i][7]=correo;
-
-//1ero
-                                /*TextView tex11 = (TextView) findViewById(R.id.nomdr1);
-                                TextView tex12 = (TextView) findViewById(R.id.especdr1);
-                                ImageView im11 = (ImageView) findViewById(R.id.imaespec);
-
-                                if (ultimos[0][4].equals("Mujer")){
-                                    im11.setImageResource(R.mipmap.doctora);
-
-                                }else {im11.setImageResource(R.mipmap.doctor);}
-
-                                tex11.setText(ultimos[0][1]);
-                                tex12.setText(ultimos[0][2]+" - "+ultimos[0][3]);*/
-
                                                             }
                             //Toast.makeText(MainActivity.this, ""+ultimos[0][0], Toast.LENGTH_SHORT).show();
                             asignar(0,ultimos[0][1],ultimos[0][2],ultimos[0][3],R.id.nomdr1,R.id.especdr1,
@@ -444,17 +380,8 @@ public String consulta;
                             asignar(4,ultimos[4][1],ultimos[4][2],ultimos[4][3],R.id.nomdr5,R.id.especdr5,
                                     R.id.imaespec5);
 
-                            //txtResponse.setText(ultimos[0][0]);
+                                    } catch (JSONException e) {
 
-
-
-                           // AppController.getInstance().getRequestQueue().getCache().remove(urlJsonArry);
-                        } catch (JSONException e) {
-                          //  Toast.makeText(MainActivity.this, "no hay internet", Toast.LENGTH_SHORT).show();
-                           /* e.printStackTrace();
-                            Toast.makeText(getApplicationContext(),
-                                    "Error: " + e.getMessage(),
-                                    Toast.LENGTH_LONG).show();*/
                             makeJsonObjectRequest(url);
                         }
 
@@ -467,7 +394,6 @@ public String consulta;
 
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d(TAG, "Error: " + error.getMessage());
-                //Toast.makeText(getApplicationContext(),"internet no hayyy", Toast.LENGTH_SHORT).show();
 
                                 hidepDialog();
 
@@ -507,12 +433,9 @@ public String consulta;
             }
         });
 
-        // Adding request to request queue
-       // AppController.getInstance().addToRequestQueue(req);
         req.setShouldCache(false);
         Volley.newRequestQueue(this).add(req);
     }
-
 
     private void showpDialog() {
         if (!pDialog.isShowing())
@@ -525,11 +448,9 @@ public String consulta;
     }
 
 
-
 public void asignar(int indice, String nombre, String especialidad, String ciudad, int residN,
                     int residE, int residI)
 {
-
 
     TextView textN = (TextView) findViewById(residN);
     TextView textE = (TextView) findViewById(residE);
@@ -571,15 +492,12 @@ public void doctor(String nombre, String especialidad, String direccion,
         startActivity(abredoc);
     }
 
-
 }
-
 
     private void makeJsonObjectRequest(String url) {
 
         showpDialog();
-        //layoutDoctores.removeAllViews();
-        JsonObjectRequest jsonObjReq = new JsonObjectRequest(url, null, new Response.Listener<JSONObject>() {
+         JsonObjectRequest jsonObjReq = new JsonObjectRequest(url, null, new Response.Listener<JSONObject>() {
 
             @Override
             public void onResponse(JSONObject response) {
@@ -598,29 +516,10 @@ public void doctor(String nombre, String especialidad, String direccion,
                     final String correo = response.getString("correoDoc");
                     ciudades.add(response.getString("ciudadDoc"));
 
-                    //     Toast.makeText(especialidad.this, ""+ultimos[i][4], Toast.LENGTH_SHORT).show();
-                    // String relevancia = person.getString("relevancia");
-                    // JSONObject phone = response.getJSONObject("phone");
-                    //  String home = phone.getString("home");
-                    //  String mobile = phone.getString("mobile");
-
-                                /*ultimos[i][0]= id;
-                                ultimos[i][1]= nombre;
-                                ultimos[i][2]= especialidad;
-                                ultimos[i][3]= ciudad;
-                                ultimos[i][4]=sexo;
-                                ultimos[i][5]=direccion;
-                                ultimos[i][6]=telefono;
-                                ultimos[i][7]=correo;*/
-
-
                     doctores = (LinearLayout) LayoutInflater.from(getApplicationContext()).inflate(R.layout.layout_doctor,null);
-
                     ImageView imagen = (ImageView) doctores.findViewById(R.id.imaespec1);
                     TextView textoNombre = (TextView) doctores.findViewById(R.id.nombrespec1);
                     TextView especi = (TextView) doctores.findViewById(R.id.espec1);
-
-                    String auxii = "Hombre";
 
                     switch (sexo){
                         case "Hombre":
@@ -631,14 +530,6 @@ public void doctor(String nombre, String especialidad, String direccion,
                             imagen.setImageResource(R.mipmap.doctora);
                             break;
                     }
-
-                                /*if (auxii == sexo) {
-                                   // imagen.setImageResource(R.mipmap.doctor);
-                                    Log.d("Este es un hombre","*******");
-                                }else{
-                                  //  imagen.setImageResource(R.mipmap.doctora);
-                                    Log.d("Esta es una mujer","-------");
-                                }*/
 
                     doctores.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -662,30 +553,17 @@ public void doctor(String nombre, String especialidad, String direccion,
                                 vete.putExtra("ciudad",ciudad);
                                 startActivity(vete);
                             }
-
-                            /*Toast.makeText(especialidad.this,
-                                    "Nombre: "+nombre+"\n"+
-                                            "Especialidad: "+especialidad+"\n"+
-                                            "Especialidad: "+telefono+"\n"+
-                                            "Especialidad: "+direccion+"\n"+
-                                            "Especialidad: "+correo+"\n", Toast.LENGTH_SHORT).show();*/
-                        }
-                    });
+                             }
+                                   });
 
                     textoNombre.setText(nombre);
                     especi.setText(ciudad);
 
                     layoutDoctores.addView(doctores);
 
-
-
-
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    Toast.makeText(getApplicationContext(),
-                            "Error: " + e.getMessage(),
-                            Toast.LENGTH_LONG).show();
-                }
+                                 }
                 hidepDialog();
             }
         }, new Response.ErrorListener() {
@@ -693,9 +571,7 @@ public void doctor(String nombre, String especialidad, String direccion,
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d(TAG, "Error: " + error.getMessage());
-                /*Toast.makeText(getApplicationContext(),
-                        error.getMessage(), Toast.LENGTH_SHORT).show();*/
-                // hide the progress dialog
+
                 hidepDialog();
                 String message = null;
                 if (error instanceof NetworkError) {

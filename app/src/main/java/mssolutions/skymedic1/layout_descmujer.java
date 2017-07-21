@@ -23,27 +23,18 @@ import android.widget.Toast;
  */
 
 public class layout_descmujer extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
-MainActivity main = new MainActivity();
-    especialidad esp = new especialidad();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_descrmujer);
 
 
-
-//nombre especialidad direccion telefono correo ciudad
-       // final String id = getIntent().getExtras().getString("IDMENU");
             String nom = getIntent().getExtras().getString("nombre");
             String esp = getIntent().getExtras().getString("especialidad");
             String dir = getIntent().getExtras().getString("direccion");
             String tel = getIntent().getExtras().getString("telefono");
             String cor = getIntent().getExtras().getString("correo");
             String ciu = getIntent().getExtras().getString("ciudad");
-
-
-
 
         TextView nombreTV = (TextView) findViewById(R.id.doctora);
         TextView especialidadTV = (TextView) findViewById(R.id.especialidad_dra);
@@ -58,12 +49,7 @@ MainActivity main = new MainActivity();
         telefonoTV.setText(tel);
         correoTV.setText(cor);
 
-
         final String num ="tel:"+ telf.getText().toString();
-
-
-
-
         telf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,8 +58,6 @@ MainActivity main = new MainActivity();
                 startActivity(i);
             }
         });
-
-
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -146,9 +130,6 @@ MainActivity main = new MainActivity();
         int id = item.getItemId();
 
         if (id == R.id.nav_especialidades) {
-
-            //Toast.makeText(MainActivity.this, "layout especialidades", Toast.LENGTH_SHORT).show();
-
             Intent ListSong = new Intent(getApplicationContext(), Activity_especialidades.class);
             startActivity(ListSong);
 
@@ -183,8 +164,6 @@ MainActivity main = new MainActivity();
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
-
 
 
 }

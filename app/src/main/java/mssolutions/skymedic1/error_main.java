@@ -31,7 +31,7 @@ public class error_main extends AppCompatActivity implements NavigationView.OnNa
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         retry = (TextView) findViewById(R.id.retry);
-      // retry.setText("MARDITO DALE CLICK");
+
         retry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -65,7 +65,6 @@ public class error_main extends AppCompatActivity implements NavigationView.OnNa
 
         if (id == R.id.nav_especialidades) {
 
-            //Toast.makeText(MainActivity.this, "layout especialidades", Toast.LENGTH_SHORT).show();
 
             Intent ListSong = new Intent(getApplicationContext(), Activity_especialidades.class);
             ListSong.putExtra("IDMENU",id);

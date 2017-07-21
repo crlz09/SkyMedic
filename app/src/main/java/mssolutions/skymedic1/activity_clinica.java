@@ -54,25 +54,18 @@ public class activity_clinica extends AppCompatActivity
 
     TextView textView;
 
-    LinearLayout layoutDoctores, doctores;
-    public ArrayList<String> ciudades = new ArrayList<>();
+       public ArrayList<String> ciudades = new ArrayList<>();
     public ArrayList<String> nuevasciudades = new ArrayList<>();
-    // json array response url
-    private String urlJsonArry = "http://arsus.nnbiocliniccenter.com.ve/json/last5.php?especialidad=";
-    private String urlnombreydesc = "http://arsus.nnbiocliniccenter.com.ve/json/last5.php?especi=";
 
     private static String TAG = MainActivity.class.getSimpleName();
-    //  private Button btnMakeObjectRequest, btnMakeArrayRequest;
 
-    // Progress dialog
     private ProgressDialog pDialog;
 
-    private TextView txtResponse;
 
     // temporary string to show the parsed response
     private String jsonResponse;
 
-    String descripcion, iconoS, UrlFinal;
+    String descripcion, UrlFinal;
 
     boolean Busqueda = false;
 
@@ -115,7 +108,7 @@ public class activity_clinica extends AppCompatActivity
 
 
         Busqueda = getIntent().getExtras().getBoolean("busqueda");
-        String desc=descripcion;
+
 
         try{ if (descripcion.contains(" ")){
 
@@ -136,7 +129,7 @@ public class activity_clinica extends AppCompatActivity
             tv.setText("FARMACIAS");
             iv.setImageResource(R.mipmap.farmacias);
         }
-       // Toast.makeText(this, ""+UrlFinal, Toast.LENGTH_LONG).show();
+
         makeJsonArrayRequest(UrlFinal);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -194,13 +187,11 @@ public class activity_clinica extends AppCompatActivity
                 ListSong.putExtra("tipito",tipo);
                 ListSong.putExtra("busqueda", true);
                 ListSong.putExtra("Descripcion", descripcion);
-             //   ListSong.putExtra("icono", iconoX);
+
                 finish();
                 startActivity(ListSong);
 
 
-                //makeJsonArrayRequest(urlnombreydesc+descripcion+"&nombre="+query, "nombre");
-                //Toast.makeText(especialidad.this, ""+urlfinal, Toast.LENGTH_SHORT).show();
                 searchView.setQuery("", false);
                 searchView.setIconified(true);
                 return true;
@@ -240,7 +231,7 @@ public class activity_clinica extends AppCompatActivity
 
         if (id == R.id.nav_especialidades) {
 
-            //Toast.makeText(MainActivity.this, "layout especialidades", Toast.LENGTH_SHORT).show();
+
 
             Intent ListSong = new Intent(getApplicationContext(), Activity_especialidades.class);
             startActivity(ListSong);
@@ -309,14 +300,12 @@ public class activity_clinica extends AppCompatActivity
                 .setSingleChoiceItems(items, 0, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        //   Toast.makeText(especialidad.this, ""+items[which], Toast.LENGTH_SHORT).show();
-                        //url de ubicacion y a jsonear!
+
                         final CharSequence[] items = new CharSequence[nuevasciudades.size()];
                         for (int i = 0; i < nuevasciudades.size(); i++) {
                             items[i] = nuevasciudades.get(i).replace(" ", "%20");
                         }
 
-                        //String ultimaciudad= ciudad.replace(" ","%20");
                         String laurl;
                         laurl="http://arsus.nnbiocliniccenter.com.ve/json/last5.php?ciudadcli="+items[which]+"&typeof="+tipo;
 
@@ -327,18 +316,13 @@ public class activity_clinica extends AppCompatActivity
                                     "&typeofc="+tipo;
                         }
 
-
-                        //  Toast.makeText(especialidad.this, ""+laurl, Toast.LENGTH_LONG).show();
-                      //  makeJsonArrayRequest(laurl);
-
                         Intent ListSong = new Intent(getApplicationContext(), activity_clinica.class);
-
                         ListSong.putExtra("urlfinal123", laurl);
                         ListSong.putExtra("busqueda", true);
                         ListSong.putExtra("Descripcion", descripcion);
                         ListSong.putExtra("tipito", tipo);
-                    //    ListSong.putExtra("icono", iconoX);
 
+                            finish();
                         startActivity(ListSong);
 
 
@@ -349,7 +333,6 @@ public class activity_clinica extends AppCompatActivity
 
         Dialog dialog = builder.create();
         dialog.show();
-        ;
 
     }
 
@@ -390,7 +373,7 @@ public class activity_clinica extends AppCompatActivity
 
                                 clinicas = (LinearLayout) LayoutInflater.from(getApplicationContext())
                                         .inflate(R.layout.clinica, null);
-                                ArrayList elementos;
+
 
                                 ImageView imagen = (ImageView) clinicas.findViewById(R.id.imacli);
                                 TextView textoNombre = (TextView) clinicas.findViewById(R.id.nomcli);
@@ -401,8 +384,6 @@ public class activity_clinica extends AppCompatActivity
                                     @Override
                                     public void onClick(View v) {
 
-                                        //  Toast.makeText(activity_clinica.this, "clinica "+ finalI, Toast.LENGTH_SHORT).show();
-                                        //aqui el fucking json que rellena ese pan canilla
                                         Intent ListSong = new Intent(getApplicationContext(),layout_clinica.class);
                                         ListSong.putExtra("Nombre",nombre);
                                         ListSong.putExtra("Imagen",img);
@@ -414,6 +395,7 @@ public class activity_clinica extends AppCompatActivity
                                         ListSong.putExtra("Correo",correo);
                                         ListSong.putExtra("Latitud",latitud);
                                         ListSong.putExtra("Longitud",longitud);
+                                        ListSong.putExtra("tipo",tipo);
                                         startActivity(ListSong);
                                     }
                                 });
@@ -441,7 +423,6 @@ public class activity_clinica extends AppCompatActivity
 
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d(TAG, "Error: " + error.getMessage());
-                //Toast.makeText(getApplicationContext(),"internet no hayyy", Toast.LENGTH_SHORT).show();
 
                 hidepDialog();
 
@@ -493,7 +474,7 @@ public class activity_clinica extends AppCompatActivity
     private void makeJsonObjectRequest(String url) {
 
         showpDialog();
-        //layoutDoctores.removeAllViews();
+
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(url, null, new Response.Listener<JSONObject>() {
 
             @Override
@@ -503,17 +484,17 @@ public class activity_clinica extends AppCompatActivity
                 try {
                     // Parsing json object response
                     // response will be a json object
-                    String id= response.getString("idCli");
-                    String nombre = response.getString("nombreCli");
-                    String img = response.getString("urlCli");
-                    String desc = response.getString("descripcionCli");
-                    String ciudad = response.getString("ciudadCli");
-                    String estado= response.getString("estadoCli");
-                    String latitud = response.getString("latitudCli");
-                    String longitud = response.getString("longitudCli");
-                    String direccion= response.getString("direccionCli");
-                    String telefono=response.getString("telefonoCli");
-                    String correo = response.getString("correoCli");
+                    final String id= response.getString("idCli");
+                    final String nombre = response.getString("nombreCli");
+                    final String img = response.getString("urlCli");
+                    final String desc = response.getString("descripcionCli");
+                    final String ciudad = response.getString("ciudadCli");
+                    final String estado= response.getString("estadoCli");
+                    final String latitud = response.getString("latitudCli");
+                    final String longitud = response.getString("longitudCli");
+                    final String direccion= response.getString("direccionCli");
+                    final String telefono=response.getString("telefonoCli");
+                    final String correo = response.getString("correoCli");
 
                     clinicas = (LinearLayout) LayoutInflater.from(getApplicationContext())
                             .inflate(R.layout.clinica, null);
@@ -527,9 +508,20 @@ public class activity_clinica extends AppCompatActivity
                     clinicas.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
+                            Intent ListSong = new Intent(getApplicationContext(),layout_clinica.class);
+                            ListSong.putExtra("Nombre",nombre);
+                            ListSong.putExtra("Imagen",img);
+                            ListSong.putExtra("Ciudad",ciudad);
+                            ListSong.putExtra("Descripcion",desc);
+                            ListSong.putExtra("Estado",estado);
+                            ListSong.putExtra("Direccion",direccion);
+                            ListSong.putExtra("Telefono",telefono);
+                            ListSong.putExtra("Correo",correo);
+                            ListSong.putExtra("Latitud",latitud);
+                            ListSong.putExtra("Longitud",longitud);
+                            ListSong.putExtra("tipo",tipo);
+                            startActivity(ListSong);
 
-                            //  Toast.makeText(activity_clinica.this, "clinica "+ finalI, Toast.LENGTH_SHORT).show();
-                            //aqui el fucking json que rellena ese pan canilla
                         }
                     });
                     textoNombre.setText(nombre);
@@ -555,8 +547,7 @@ public class activity_clinica extends AppCompatActivity
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d(TAG, "Error: " + error.getMessage());
-                /*Toast.makeText(getApplicationContext(),
-                        error.getMessage(), Toast.LENGTH_SHORT).show();*/
+
                 // hide the progress dialog
                 hidepDialog();
                 String message = null;
@@ -595,14 +586,6 @@ public class activity_clinica extends AppCompatActivity
         jsonObjReq.setShouldCache(false);
         Volley.newRequestQueue(this).add(jsonObjReq);
     }
-
-
-
-    //FIN JSONO
-
-
-
-
 
 
 }

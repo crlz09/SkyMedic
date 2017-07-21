@@ -42,13 +42,14 @@
             android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/fondo_cli_far"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@android:color/darker_gray"
                 android:orientation="vertical"
-                android:background="#009000"
+                android:paddingBottom="15dp"
                 android:paddingLeft="10dp"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp">
+                android:paddingTop="15dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -65,8 +66,8 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:gravity="bottom">
+                        android:gravity="bottom"
+                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/nombreclinicaf"

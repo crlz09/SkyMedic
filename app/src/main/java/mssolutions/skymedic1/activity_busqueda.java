@@ -55,22 +55,17 @@ public class activity_busqueda extends AppCompatActivity
     LinearLayout layoutDoctores, doctores;
     public ArrayList<String> ciudades=new ArrayList<>();
     public ArrayList<String> nuevasciudades=new ArrayList<>();
-    // json array response url
-   private String urlJsonArry = "http://arsus.nnbiocliniccenter.com.ve/json/last5.php?especialidad=";
-    private String urlnombreydesc="http://arsus.nnbiocliniccenter.com.ve/json/last5.php?especi=";
 
     private static String TAG = MainActivity.class.getSimpleName();
-    //  private Button btnMakeObjectRequest, btnMakeArrayRequest;
+
 
     // Progress dialog
     private ProgressDialog pDialog;
 
-    private TextView txtResponse;
-
-    // temporary string to show the parsed response
+     // temporary string to show the parsed response
     private String jsonResponse;
 
-    String descripcion, iconoS, UrlFinal;
+    String descripcion, UrlFinal;
 
 
 
@@ -84,7 +79,7 @@ public class activity_busqueda extends AppCompatActivity
         pDialog = new ProgressDialog(this);
         pDialog.setMessage("Actualizando");
         pDialog.setCancelable(false);
-        //consulta= getIntent().getExtras().getString("Consulta");
+
         LinearLayout filtro=(LinearLayout) findViewById(R.id.filtr);
        filtro.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,13 +91,12 @@ public class activity_busqueda extends AppCompatActivity
         UrlFinal = getIntent().getExtras().getString("Url");
 
        consulta = getIntent().getExtras().getString("Consulta");
-        //Toast.makeText(this, ""+consulta, Toast.LENGTH_SHORT).show();
+
 
 
 
         layoutDoctores = (LinearLayout)findViewById(R.id.especialidadunica);
 
-      //  Toast.makeText(activity_busqueda.this, ""+UrlFinal, Toast.LENGTH_LONG).show();
 
         makeJsonArrayRequest(UrlFinal,"Global");
 
@@ -133,7 +127,6 @@ public class activity_busqueda extends AppCompatActivity
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                //  Toast.makeText(especialidad.this, query.toString(), Toast.LENGTH_SHORT).show();
                 //se oculta el EditText
                 consulta=query;
                 try{query=query.replace(" ","%20");
@@ -151,8 +144,6 @@ public class activity_busqueda extends AppCompatActivity
                 startActivity(ListSong);
                 finish();
 
-                //makeJsonArrayRequest(urlnombreydesc+descripcion+"&nombre="+query, "nombre");
-                //Toast.makeText(especialidad.this, ""+urlfinal, Toast.LENGTH_SHORT).show();
                 searchView.setQuery("", false);
                 searchView.setIconified(true);
                 return true;
@@ -191,42 +182,41 @@ public class activity_busqueda extends AppCompatActivity
 
         if (id == R.id.nav_especialidades) {
 
-            //Toast.makeText(MainActivity.this, "layout especialidades", Toast.LENGTH_SHORT).show();
-
             Intent ListSong = new Intent(getApplicationContext(), Activity_especialidades.class);
             startActivity(ListSong);
 
 
-        } else if (id == R.id.nav_clinicas) {
+            } else if (id == R.id.nav_clinicas) {
 
             Intent ListSong = new Intent(getApplicationContext(), layout_clinica.class);
             startActivity(ListSong);
 
-        } else if (id == R.id.nav_farmacias) {
+            } else if (id == R.id.nav_farmacias) {
             Intent ListSong = new Intent(getApplicationContext(), layout_clinica.class);
             startActivity(ListSong);
-        } else if (id == R.id.nav_suscribase) {
+            } else if (id == R.id.nav_suscribase) {
             Intent ListSong = new Intent(getApplicationContext(),layout_contacto.class);
             startActivity(ListSong);
 
-        } else if (id == R.id.nav_opinion) {
+            } else if (id == R.id.nav_opinion) {
             Intent ListSong = new Intent(getApplicationContext(), layout_contacto.class);
             startActivity(ListSong);
 
-        } else if (id == R.id.nav_acercade) {
+            } else if (id == R.id.nav_acercade) {
 
         }
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
-    public String ultimos[][] = new String [100][100];
 
     public void makeJsonArrayRequest(final String urlconsulta, final String tipo) {
-       //Toast.makeText(this, ""+urlconsulta, Toast.LENGTH_SHORT).show();
+
         showpDialog();
+
 
         JsonArrayRequest req = new JsonArrayRequest(urlconsulta,
                 new Response.Listener<JSONArray>() {
@@ -239,7 +229,6 @@ public class activity_busqueda extends AppCompatActivity
                             // Parsing json array response
                             // loop through each json object
                             jsonResponse = "";
-                            LinearLayout[] linea;
 
                             for (int i = 0; i < response.length(); i++) {
 
@@ -261,7 +250,6 @@ public class activity_busqueda extends AppCompatActivity
                                 TextView textoNombre = (TextView) doctores.findViewById(R.id.nombrespec1);
                                 TextView especi = (TextView) doctores.findViewById(R.id.espec1);
 
-                                String auxii = "Hombre";
 
                                 switch (sexo){
                                     case "Hombre":
@@ -306,14 +294,9 @@ public class activity_busqueda extends AppCompatActivity
                             }
 
 
-
-                            // AppController.getInstance().getRequestQueue().getCache().remove(urlJsonArry);
                         } catch (JSONException e) {
                             e.printStackTrace();
-                          /*  Toast.makeText(getApplicationContext(),
-                                    "Error: " + e.getMessage(),
-                                    Toast.LENGTH_LONG).show();*/
-                           // Toast.makeText(activity_busqueda.this, "error en Array "+UrlFinal, Toast.LENGTH_LONG).show();
+
                             makeJsonObjectRequest(urlconsulta);
 
                         }
@@ -324,9 +307,7 @@ public class activity_busqueda extends AppCompatActivity
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                VolleyLog.d(TAG, "Error: " + error.getMessage());
-               /* Toast.makeText(getApplicationContext(),
-                        error.getMessage(), Toast.LENGTH_SHORT).show();*/
+
                 hidepDialog();
                 String message = null;
                 if (error instanceof NetworkError) {
@@ -371,7 +352,7 @@ public class activity_busqueda extends AppCompatActivity
     private void makeJsonObjectRequest(String url) {
 
         showpDialog();
-        //layoutDoctores.removeAllViews();
+
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(url, null, new Response.Listener<JSONObject>() {
 
             @Override
@@ -391,34 +372,12 @@ public class activity_busqueda extends AppCompatActivity
                     final String correo = response.getString("correoDoc");
                     ciudades.add(response.getString("ciudadDoc"));
 
-                    //     Toast.makeText(especialidad.this, ""+ultimos[i][4], Toast.LENGTH_SHORT).show();
-                    // String relevancia = person.getString("relevancia");
-                    // JSONObject phone = response.getJSONObject("phone");
-                    //  String home = phone.getString("home");
-                    //  String mobile = phone.getString("mobile");
-
-                                /*ultimos[i][0]= id;
-                                ultimos[i][1]= nombre;
-                                ultimos[i][2]= especialidad;
-                                ultimos[i][3]= ciudad;
-                                ultimos[i][4]=sexo;
-                                ultimos[i][5]=direccion;
-                                ultimos[i][6]=telefono;
-                                ultimos[i][7]=correo;*/
-
-
                     doctores = (LinearLayout) LayoutInflater.from(getApplicationContext()).inflate(R.layout.layout_doctor,null);
 
                     ImageView imagen = (ImageView) doctores.findViewById(R.id.imaespec1);
                     TextView textoNombre = (TextView) doctores.findViewById(R.id.nombrespec1);
                     TextView especi = (TextView) doctores.findViewById(R.id.espec1);
 
-                    // textE.setTextColor(Color.parseColor("#FFFE797A"));
-
-                    //mujer textE.setTextColor(Color.parseColor("#FF6DBCD4"))
-
-
-                    String auxii = "Hombre";
 
                     switch (sexo){
                         case "Hombre":
@@ -454,15 +413,8 @@ public class activity_busqueda extends AppCompatActivity
                                 vete.putExtra("ciudad",ciudad);
                                 startActivity(vete);
                             }
-
-                           /* Toast.makeText(especialidad.this,
-                                    "Nombre: "+nombre+"\n"+
-                                            "Especialidad: "+especialidad+"\n"+
-                                            "Especialidad: "+telefono+"\n"+
-                                            "Especialidad: "+direccion+"\n"+
-                                            "Especialidad: "+correo+"\n", Toast.LENGTH_SHORT).show();
-*/                        }
-                    });
+                             }
+                                });
 
                     textoNombre.setText(nombre);
                     especi.setText(ciudad);
@@ -472,9 +424,7 @@ public class activity_busqueda extends AppCompatActivity
 
                 } catch (JSONException e) {
                     e.printStackTrace();
-                /*    Toast.makeText(getApplicationContext(),
-                            "Error: " + e.getMessage(),
-                            Toast.LENGTH_LONG).show();*/
+
                 }
                 hidepDialog();
             }
@@ -483,9 +433,7 @@ public class activity_busqueda extends AppCompatActivity
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d(TAG, "Error: " + error.getMessage());
-                /*Toast.makeText(getApplicationContext(),
-                        error.getMessage(), Toast.LENGTH_SHORT).show();*/
-                // hide the progress dialog
+                               // hide the progress dialog
                 hidepDialog();
                 String message = null;
                 if (error instanceof NetworkError) {
@@ -585,18 +533,15 @@ public class activity_busqueda extends AppCompatActivity
                 .setSingleChoiceItems(items, 0, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        //   Toast.makeText(especialidad.this, ""+items[which], Toast.LENGTH_SHORT).show();
-                        //url de ubicacion y a jsonear!
+
                         final CharSequence[] items = new CharSequence[nuevasciudades.size()];
                         for (int i=0; i<nuevasciudades.size();i++){
                             items[i]=nuevasciudades.get(i).replace(" ","%20");
                         }
 
-                        //String ultimaciudad= ciudad.replace(" ","%20");
+
                         String laurl="http://arsus.nnbiocliniccenter.com.ve/json/last5.php?n="+consulta+"&f="+items[which];
-                        //  Toast.makeText(especialidad.this, ""+laurl, Toast.LENGTH_LONG).show();
                         makeJsonArrayRequest(laurl,"ubicacion");
-                       // Toast.makeText(activity_busqueda.this, ""+laurl, Toast.LENGTH_LONG).show();
                         Intent ListSong = new Intent(getApplicationContext(), activity_busqueda.class);
                         ListSong.putExtra("Url",laurl);
                         ListSong.putExtra("busqueda",true);

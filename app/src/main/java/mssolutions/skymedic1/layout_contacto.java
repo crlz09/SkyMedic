@@ -19,7 +19,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import mssolutions.skymedic1.app.correo;
@@ -32,12 +31,8 @@ public class layout_contacto extends AppCompatActivity implements NavigationView
 
     correo nuevocorreo= new correo();
 
-    EditText ETnombre;
-    EditText ETcorreo;
-    EditText ETtelefono;
-    EditText ETmensaje;
     String asunto;
-    int idfinal;
+
     // Progress dialog
     private ProgressDialog pDialog;
 
@@ -63,7 +58,6 @@ public class layout_contacto extends AppCompatActivity implements NavigationView
         pDialog.setMessage("Por favor espera...");
         pDialog.setCancelable(false);
         asunto= getIntent().getExtras().getString("Opcion");
-       // Toast.makeText(this, ""+asunto, Toast.LENGTH_SHORT).show();
 
         Button enviar = (Button) findViewById(R.id.button);
         final EditText ETnombre = (EditText) findViewById(R.id.ETnombre);
@@ -76,11 +70,6 @@ public class layout_contacto extends AppCompatActivity implements NavigationView
         enviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*Toast.makeText(layout_contacto.this, ""+ETcorreo.getText().toString(), Toast.LENGTH_SHORT).show();
-                Toast.makeText(layout_contacto.this, ""+ETtelefono.getText().toString(), Toast.LENGTH_SHORT).show();
-                Toast.makeText(layout_contacto.this, ""+ETnombre.getText().toString(), Toast.LENGTH_SHORT).show();
-                Toast.makeText(layout_contacto.this, ""+ETmensaje.getText().toString(), Toast.LENGTH_SHORT).show();*/
-                //envialopues();
 
 
                 if (isOnline()){
@@ -103,9 +92,6 @@ public class layout_contacto extends AppCompatActivity implements NavigationView
 
 
 
-
-
-        TextView textView = (TextView) findViewById(R.id.textView);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -121,8 +107,8 @@ public class layout_contacto extends AppCompatActivity implements NavigationView
             navigationView.getMenu().getItem(3).setChecked(true);
         }else {navigationView.getMenu().getItem(4).setChecked(true); }
 
-       // navigationView.getMenu().getItem(3).setChecked(true);
     }
+
     @SuppressWarnings("StatementWithEmptyBody")
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -183,7 +169,6 @@ public class layout_contacto extends AppCompatActivity implements NavigationView
 
         if (id == R.id.nav_especialidades) {
 
-            //Toast.makeText(MainActivity.this, "layout especialidades", Toast.LENGTH_SHORT).show();
 
             Intent ListSong = new Intent(getApplicationContext(), Activity_especialidades.class);
             startActivity(ListSong);

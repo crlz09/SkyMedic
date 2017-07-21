@@ -53,14 +53,12 @@ public class especialidad extends AppCompatActivity
     LinearLayout layoutDoctores, doctores;
     public ArrayList<String> ciudades=new ArrayList<>();
     public ArrayList<String> nuevasciudades=new ArrayList<>();
-    // json array response url
+
     private String urlJsonArry = "http://arsus.nnbiocliniccenter.com.ve/json/last5.php?especialidad=";
     private String urlnombreydesc="http://arsus.nnbiocliniccenter.com.ve/json/last5.php?especi=";
 
     private static String TAG = MainActivity.class.getSimpleName();
-    //  private Button btnMakeObjectRequest, btnMakeArrayRequest;
 
-    // Progress dialog
     private ProgressDialog pDialog;
 
     private TextView txtResponse;
@@ -141,41 +139,6 @@ public class especialidad extends AppCompatActivity
 
 
 
-
-        // LinearLayout layout1 = (LinearLayout) findViewById(R.id.dr1);
-
-      /*  layout1.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View view) {
-                Intent abredoc = new Intent(getApplicationContext(), layout_deschombre.class);
-               *//* abredoc.putExtra("nombre", nombredoc);
-                abredoc.putExtra("especialidad", especialidad);
-*//*
-                startActivity(abredoc);
-
-            }
-        });*/
-
-
-/*
-        //mujer
-
-        LinearLayout layout2 = (LinearLayout) findViewById(R.id.dr2);
-        layout2.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View view) {
-                Intent abredoc = new Intent(getApplicationContext(), layout_descmujer.class);
-          *//*      abredoc.putExtra("nombredra", nombredra);
-                abredoc.putExtra("especdra", especialidad);*//*
-                startActivity(abredoc);
-            }
-        });*/
-
-
-
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -209,8 +172,7 @@ public class especialidad extends AppCompatActivity
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-              //  Toast.makeText(especialidad.this, query.toString(), Toast.LENGTH_SHORT).show();
-                //se oculta el EditText
+
                 try{query=query.replace(" ","%20");
 
                 }catch (Exception ex){}
@@ -227,8 +189,7 @@ public class especialidad extends AppCompatActivity
                 startActivity(ListSong);
 
 
-                //makeJsonArrayRequest(urlnombreydesc+descripcion+"&nombre="+query, "nombre");
-                //Toast.makeText(especialidad.this, ""+urlfinal, Toast.LENGTH_SHORT).show();
+
                 searchView.setQuery("", false);
                 searchView.setIconified(true);
                 return true;
@@ -267,7 +228,6 @@ public class especialidad extends AppCompatActivity
 
         if (id == R.id.nav_especialidades) {
 
-            //Toast.makeText(MainActivity.this, "layout especialidades", Toast.LENGTH_SHORT).show();
 
             Intent ListSong = new Intent(getApplicationContext(), Activity_especialidades.class);
             startActivity(ListSong);
@@ -376,12 +336,7 @@ public class especialidad extends AppCompatActivity
                                                 startActivity(vete);
                                             }
 
-                                            /*Toast.makeText(especialidad.this,
-                                                    "Nombre: "+nombre+"\n"+
-                                                            "Especialidad: "+especialidad+"\n"+
-                                                            "Especialidad: "+telefono+"\n"+
-                                                            "Especialidad: "+direccion+"\n"+
-                                                            "Especialidad: "+correo+"\n", Toast.LENGTH_SHORT).show();*/
+
                                         }
                                     });
 
@@ -393,12 +348,10 @@ public class especialidad extends AppCompatActivity
 
 
 
-                            // AppController.getInstance().getRequestQueue().getCache().remove(urlJsonArry);
+
                         } catch (JSONException e) {
                             e.printStackTrace();
-                          /*  Toast.makeText(getApplicationContext(),
-                                    "Error: " + e.getMessage(),
-                                    Toast.LENGTH_LONG).show();*/
+
 
                             makeJsonObjectRequest(urlconsulta);
 
@@ -411,8 +364,7 @@ public class especialidad extends AppCompatActivity
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d(TAG, "Error: " + error.getMessage());
-            /*    Toast.makeText(getApplicationContext(),
-                        error.getMessage(), Toast.LENGTH_SHORT).show();*/
+
                 hidepDialog();
                 String message = null;
                 if (error instanceof NetworkError) {
@@ -456,7 +408,7 @@ public class especialidad extends AppCompatActivity
     private void makeJsonObjectRequest(String url) {
 
         showpDialog();
-        //layoutDoctores.removeAllViews();
+
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(url, null, new Response.Listener<JSONObject>() {
 
             @Override
@@ -476,20 +428,6 @@ public class especialidad extends AppCompatActivity
                     final String correo = response.getString("correoDoc");
                     ciudades.add(response.getString("ciudadDoc"));
 
-                    //     Toast.makeText(especialidad.this, ""+ultimos[i][4], Toast.LENGTH_SHORT).show();
-                    // String relevancia = person.getString("relevancia");
-                    // JSONObject phone = response.getJSONObject("phone");
-                    //  String home = phone.getString("home");
-                    //  String mobile = phone.getString("mobile");
-
-                                /*ultimos[i][0]= id;
-                                ultimos[i][1]= nombre;
-                                ultimos[i][2]= especialidad;
-                                ultimos[i][3]= ciudad;
-                                ultimos[i][4]=sexo;
-                                ultimos[i][5]=direccion;
-                                ultimos[i][6]=telefono;
-                                ultimos[i][7]=correo;*/
 
 
                     doctores = (LinearLayout) LayoutInflater.from(getApplicationContext()).inflate(R.layout.layout_doctor,null);
@@ -497,10 +435,6 @@ public class especialidad extends AppCompatActivity
                     ImageView imagen = (ImageView) doctores.findViewById(R.id.imaespec1);
                     TextView textoNombre = (TextView) doctores.findViewById(R.id.nombrespec1);
                     TextView especi = (TextView) doctores.findViewById(R.id.espec1);
-
-                    // textE.setTextColor(Color.parseColor("#FFFE797A"));
-
-                    //mujer textE.setTextColor(Color.parseColor("#FF6DBCD4"))
 
 
                     String auxii = "Hombre";
@@ -540,13 +474,7 @@ public class especialidad extends AppCompatActivity
                                 startActivity(vete);
                             }
 
-                           /* Toast.makeText(especialidad.this,
-                                    "Nombre: "+nombre+"\n"+
-                                            "Especialidad: "+especialidad+"\n"+
-                                            "Especialidad: "+telefono+"\n"+
-                                            "Especialidad: "+direccion+"\n"+
-                                            "Especialidad: "+correo+"\n", Toast.LENGTH_SHORT).show();
-*/                        }
+                                              }
                     });
 
                     textoNombre.setText(nombre);
@@ -557,9 +485,7 @@ public class especialidad extends AppCompatActivity
 
                 } catch (JSONException e) {
                     e.printStackTrace();
-                /*    Toast.makeText(getApplicationContext(),
-                            "Error: " + e.getMessage(),
-                            Toast.LENGTH_LONG).show();*/
+
                 }
                 hidepDialog();
             }
@@ -568,8 +494,7 @@ public class especialidad extends AppCompatActivity
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d(TAG, "Error: " + error.getMessage());
-                /*Toast.makeText(getApplicationContext(),
-                        error.getMessage(), Toast.LENGTH_SHORT).show();*/
+
                 // hide the progress dialog
                 hidepDialog();
                 String message = null;
@@ -624,6 +549,7 @@ public class especialidad extends AppCompatActivity
 
         if (sexo.equals("Mujer")) {
             Intent abredoc = new Intent(getApplicationContext(), layout_descmujer.class);
+
             abredoc.putExtra("nombre", nombre);
             abredoc.putExtra("especialidad", especialidad);
             abredoc.putExtra("direccion", direccion);
@@ -676,9 +602,8 @@ public class especialidad extends AppCompatActivity
                             items[i]=nuevasciudades.get(i).replace(" ","%20");
                         }
 
-                       //String ultimaciudad= ciudad.replace(" ","%20");
                         String laurl="http://arsus.nnbiocliniccenter.com.ve/json/last5.php?esp="+descripcion+"&ciudad="+items[which];
-                      //  Toast.makeText(especialidad.this, ""+laurl, Toast.LENGTH_LONG).show();
+
                         makeJsonArrayRequest(laurl,"ubicacion");
 
                         Intent ListSong = new Intent(getApplicationContext(), especialidad.class);

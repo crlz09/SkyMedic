@@ -15,21 +15,17 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 
 public class Activity_especialidades  extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
-    public String[] mCircuito;
-
        @Override
     protected void onCreate(Bundle savedInstanceState) {
            super.onCreate(savedInstanceState);
+
            setContentView(R.layout.layout_especialidades);
-          // final String id = getIntent().getExtras().getString("IDMENU");
 
-
-    final String especialidades[] = {"Alergologia","Anestesiologia","Angiologia","Bariatria",
+             final String especialidades[] = {"Alergologia","Anestesiologia","Angiologia","Bariatria",
             "Cardiologia","Cirugia Estetica",
             "Cirugia General","Cirugia Maxilar",
             "Cirugia Plastica","Dermatologia",
@@ -47,23 +43,8 @@ public class Activity_especialidades  extends AppCompatActivity implements Navig
 
             long idespecialidades [] = new long[47];
 
-           LinearLayout layout1 = (LinearLayout) findViewById(R.id.alergologia);
 
-         /* Log.d("ALERGOLOGIA", ""+R.id.alergologia);
-           Log.d("ANESTESIOLOGIA", ""+R.id.anestesiologia);
-           Log.d("ANGIOLOGIA", ""+R.id.angiologia);
-           Log.d("BARIATRIA",""+R.id.bariatria);
-           Log.d("CARDIOLOGIA",""+R.id.cardiologia);
-           Log.d("CIRUGIA",""+R.id.cirugia_estetica);
-           long i=0;
-           long limite= R.id.alergologia+46;
-           Log.d("TAM",""+i);
-
-           */
-
-           long i=0;
-           long limite= R.id.alergologia+46;
-            LinearLayout [] locura = new LinearLayout[47];
+           LinearLayout [] locura = new LinearLayout[47];
 
            for (int j=0; j < idespecialidades.length; j++){
                idespecialidades[j]=R.id.alergologia+j;
@@ -81,28 +62,10 @@ public class Activity_especialidades  extends AppCompatActivity implements Navig
                    }
                });
 
-
            }
 
 
-
-
-          /* layout1.setOnClickListener(new View.OnClickListener(){
-
-               @Override
-               public void onClick(View view) {
-                   Intent abredoc = new Intent(getApplicationContext(), especialidad.class);
-                   startActivity(abredoc);
-
-               }
-           });*/
-
-
-
-
-
-           TextView textView = (TextView) findViewById(R.id.textView);
-           Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+             Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
            setSupportActionBar(toolbar);
 
            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -116,12 +79,9 @@ public class Activity_especialidades  extends AppCompatActivity implements Navig
            navigationView.getMenu().getItem(0).setChecked(true);
            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
-
-
-
-
        }
+
+
     @SuppressWarnings("StatementWithEmptyBody")
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -143,7 +103,6 @@ public class Activity_especialidades  extends AppCompatActivity implements Navig
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-               // Toast.makeText(Activity_especialidades.this, query.toString(), Toast.LENGTH_SHORT).show();
                 //se oculta el EditText
                 searchView.setQuery("", false);
                 searchView.setIconified(true);
@@ -182,37 +141,33 @@ public class Activity_especialidades  extends AppCompatActivity implements Navig
 
         if (id == R.id.nav_especialidades) {
 
-            //Toast.makeText(MainActivity.this, "layout especialidades", Toast.LENGTH_SHORT).show();
-
             Intent ListSong = new Intent(getApplicationContext(), Activity_especialidades.class);
             ListSong.putExtra("IDMENU",id);
             startActivity(ListSong);
-
-
-        } else if (id == R.id.nav_clinicas) {
+            } else if (id == R.id.nav_clinicas) {
 
             Intent ListSong = new Intent(getApplicationContext(), layout_clinica.class);
             ListSong.putExtra("IDMENU",id);
             startActivity(ListSong);
 
-        } else if (id == R.id.nav_farmacias) {
+            } else if (id == R.id.nav_farmacias) {
 
             Intent ListSong = new Intent(getApplicationContext(), layout_clinica.class);
             ListSong.putExtra("IDMENU",id);
             startActivity(ListSong);
-        }  else if (id == R.id.nav_suscribase) {
+            }  else if (id == R.id.nav_suscribase) {
             Intent ListSong = new Intent(getApplicationContext(),layout_contacto.class);
             ListSong.putExtra("IDMENU",id);
             ListSong.putExtra("Opcion","Suscribase");
             startActivity(ListSong);
 
-        } else if (id == R.id.nav_opinion) {
+            } else if (id == R.id.nav_opinion) {
             Intent ListSong = new Intent(getApplicationContext(), layout_contacto.class);
             ListSong.putExtra("IDMENU",id);
             ListSong.putExtra("Opcion","Opinion");
             startActivity(ListSong);
 
-        } else if (id == R.id.nav_acercade) {
+            } else if (id == R.id.nav_acercade) {
 
         }
 
@@ -221,7 +176,6 @@ public class Activity_especialidades  extends AppCompatActivity implements Navig
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
 
 
 
