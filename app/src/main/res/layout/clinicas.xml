@@ -15,7 +15,8 @@
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
         tools:context="mssolutions.skymedic1.MainActivity"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        >
 
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
@@ -30,6 +31,83 @@
                 app:popupTheme="@style/AppTheme.PopupOverlay" />
 
         </android.support.design.widget.AppBarLayout>
+
+        <LinearLayout
+            android:background="?@android:attr/selectableItemBackground"
+            android:backgroundTint="@android:color/white"
+            android:clickable="false"
+            android:focusable="false"
+            android:orientation="horizontal"
+            android:layout_marginBottom="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:weightSum="11">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="3">
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@mipmap/clinicas"
+                    android:id="@+id/imag"
+                    android:gravity="center_vertical"
+
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="2dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:textSize="18sp"
+                    android:text=""
+                    android:textAlignment="inherit"
+                    android:paddingLeft="8dp"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="5dp"
+                    android:textColor="#a0a0a0"
+                    android:layout_weight="0.54"
+                    android:id="@+id/titulo"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="?@android:attr/selectableItemBackground"
+                android:backgroundTint="@android:color/white"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_weight="8"
+                android:onClick="abre_dialogo"
+                android:id="@+id/filtro">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="FILTRAR"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="5dp"
+
+                    android:paddingLeft="5dp" />
+
+                <ImageView
+                    android:layout_marginTop="3dp"
+                    android:src="@mipmap/ubicacion"
+                    android:gravity="center_vertical"
+
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_vertical" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
 
         <ScrollView
             android:background="?@android:attr/selectableItemBackground"

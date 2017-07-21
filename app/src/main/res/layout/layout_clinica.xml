@@ -57,9 +57,10 @@
                     android:paddingBottom="5dp">
 
                     <ImageView
-                        android:src="@drawable/ls"
+                        android:id="@+id/imgclinicaf"
                         android:layout_width="80dp"
-                        android:layout_height="80dp" />
+                        android:layout_height="80dp"
+                        android:src="@drawable/ls" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -68,24 +69,24 @@
                         android:gravity="bottom">
 
                         <TextView
+                            android:id="@+id/nombreclinicaf"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Centro Médico de Occidente"
-                            android:textSize="20sp"
-                            android:textColor="#FFFFFF"
                             android:layout_marginLeft="5dp"
-                            android:id="@+id/nomfindr"
+                            android:fontFamily="sans-serif"
+                            android:text="Centro Médico de Occidente"
                             android:textAlignment="viewStart"
-                            android:fontFamily="sans-serif" />
+                            android:textColor="#FFFFFF"
+                            android:textSize="20sp" />
 
                         <TextView
+                            android:id="@+id/ciudadclinicaf"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
                             android:text="Zulia - Maracaibo"
                             android:textColor="#FFFFFF"
-                            android:textSize="16sp"
-                            android:layout_marginLeft="5dp"
-                            android:id="@+id/especfindr"/>
+                            android:textSize="16sp" />
 
                     </LinearLayout>
 
@@ -103,6 +104,7 @@
                 android:paddingRight="10dp">
 
                 <TextView
+                    android:id="@+id/textView7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="DESCRIPCIÓN"
@@ -110,12 +112,12 @@
                     android:textSize="16sp" />
 
                 <TextView
+                    android:id="@+id/descclinicaf"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:id="@+id/telf"
+                    android:text="Rama de la medicina que estudia las enfermedades de la infancia (hasta los 14 años). Incluyendo el cuidado de la salud y el crecimiento de los niños y la prevención de sus enfermedades."
                     android:textColorLink="?attr/actionModeSplitBackground"
-                    android:text="Rama de la medicina que estudia las enfermedades de la infancia (hasta los 14 años). Incluyendo el cuidado de la salud y el crecimiento de los niños y la prevención de sus enfermedades." />
+                    android:textSize="14sp" />
 
             </LinearLayout>
 
@@ -134,13 +136,14 @@
                     android:layout_width="30dp" />
 
                 <TextView
+                    android:id="@+id/telefonoclinicaf"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="04245127896 / 04268524512"
-                    android:textSize="12sp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:textAlignment="center" />
+                    android:text="04245127896 / 04268524512"
+                    android:textAlignment="center"
+                    android:textSize="12sp" />
 
             </LinearLayout>
 
@@ -159,13 +162,14 @@
                     android:layout_width="30dp" />
 
                 <TextView
+                    android:id="@+id/correoclinicaf"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="centromedic@gmail.com"
-                    android:textSize="12sp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:textAlignment="center" />
+                    android:text="centromedic@gmail.com"
+                    android:textAlignment="center"
+                    android:textSize="12sp" />
 
             </LinearLayout>
 
@@ -209,13 +213,14 @@
                     android:layout_width="30dp" />
 
                 <TextView
+                    android:id="@+id/direccionclinicaf"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Especialidad que estudia de las enfermedades hematológicas, es decir, de la sangre y los órganos que la producen."
-                    android:textSize="12sp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:textAlignment="viewStart" />
+                    android:text="Especialidad que estudia de las enfermedades hematológicas, es decir, de la sangre y los órganos que la producen."
+                    android:textAlignment="viewStart"
+                    android:textSize="12sp" />
 
             </LinearLayout>
 

@@ -29,8 +29,7 @@ public class layout_deschombre  extends AppCompatActivity implements NavigationV
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_descrhombre);
-        TextView nomdr = (TextView) findViewById(R.id.nomfindr);
-        TextView especdr = (TextView) findViewById(R.id.especfindr);
+
        // Toast.makeText(this, nombre, Toast.LENGTH_SHORT).show();
        // Toast.makeText(this, espec, Toast.LENGTH_SHORT).show();
         //final String id = getIntent().getExtras().getString("IDMENU");

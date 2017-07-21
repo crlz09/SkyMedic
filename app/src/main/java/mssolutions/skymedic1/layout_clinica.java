@@ -15,8 +15,11 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.squareup.picasso.Picasso;
 
 /**
  * Created by marci y CARLOSMOLINA on 14/6/2017.
@@ -30,7 +33,38 @@ public class layout_clinica  extends AppCompatActivity implements NavigationView
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_clinica);
 
-        TextView telf = (TextView) findViewById(R.id.telf);
+//        NECESITO RECIBIR:
+//        NOMBRE DE LA CLINICA, DESCRIPCION,TELEFONO, CORREO, DIRECCION,UBICACION,CIUDAD,ESTADO
+
+        String nombre,img,ciudad,desc,estado,direccion,telefono,correo,latitud,longitud;
+
+        nombre=getIntent().getExtras().getString("Nombre");
+        img=getIntent().getExtras().getString("Imagen");
+        ciudad=getIntent().getExtras().getString("Ciudad");
+        desc=getIntent().getExtras().getString("Descripcion");
+        estado=getIntent().getExtras().getString("Estado");
+        direccion=getIntent().getExtras().getString("Direccion");
+        correo=getIntent().getExtras().getString("Correo");
+        telefono=getIntent().getExtras().getString("Telefono");
+        latitud=getIntent().getExtras().getString("Latitud");
+        longitud=getIntent().getExtras().getString("Longitud");
+
+        ImageView imagen = (ImageView) findViewById(R.id.imgclinicaf);
+        TextView TVnombre = (TextView) findViewById(R.id.nombreclinicaf);
+        TextView TVciudad = (TextView) findViewById(R.id.ciudadclinicaf);
+        TextView TVdesc = (TextView) findViewById(R.id.descclinicaf);
+        TextView TVcorreo = (TextView) findViewById(R.id.correoclinicaf);
+        TextView TVdireccion = (TextView) findViewById(R.id.direccionclinicaf);
+        TextView telf = (TextView) findViewById(R.id.telefonoclinicaf);
+
+        Picasso.with(getApplicationContext()).load(img).fit().into(imagen);
+        TVnombre.setText(nombre);
+        TVciudad.setText(ciudad+" - " + estado);
+        TVcorreo.setText(correo);
+        TVdesc.setText(desc);
+        TVdireccion.setText(direccion);
+
+        telf.setText(telefono);
         final String num ="tel:"+ telf.getText().toString();
         telf.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,7 +75,9 @@ public class layout_clinica  extends AppCompatActivity implements NavigationView
             }
         });
 
+
         TextView textView = (TextView) findViewById(R.id.textView);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

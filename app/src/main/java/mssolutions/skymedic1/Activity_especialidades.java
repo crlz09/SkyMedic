@@ -114,7 +114,7 @@ public class Activity_especialidades  extends AppCompatActivity implements Navig
            NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
            navigationView.setNavigationItemSelectedListener(this);
            navigationView.getMenu().getItem(0).setChecked(true);
-
+           getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
 

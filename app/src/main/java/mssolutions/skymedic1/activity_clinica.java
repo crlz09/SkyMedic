@@ -1,6 +1,8 @@
 package mssolutions.skymedic1;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -8,6 +10,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
@@ -40,61 +43,117 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 /**
  * Created by Carlosm on 18/07/2017.
  */
 
 public class activity_clinica extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener
-{
+        implements NavigationView.OnNavigationItemSelectedListener {
 
-    LinearLayout clinicas, layoutclinicas;
-    private static String TAG = activity_clinica.class.getSimpleName();
-    String tipo;
+    TextView textView;
+
+    LinearLayout layoutDoctores, doctores;
+    public ArrayList<String> ciudades = new ArrayList<>();
+    public ArrayList<String> nuevasciudades = new ArrayList<>();
+    // json array response url
+    private String urlJsonArry = "http://arsus.nnbiocliniccenter.com.ve/json/last5.php?especialidad=";
+    private String urlnombreydesc = "http://arsus.nnbiocliniccenter.com.ve/json/last5.php?especi=";
+
+    private static String TAG = MainActivity.class.getSimpleName();
+    //  private Button btnMakeObjectRequest, btnMakeArrayRequest;
+
+    // Progress dialog
     private ProgressDialog pDialog;
-    String urlconsulta= "http://arsus.nnbiocliniccenter.com.ve/json/last5.php?tipo=";
+
     private TextView txtResponse;
 
     // temporary string to show the parsed response
     private String jsonResponse;
 
+    String descripcion, iconoS, UrlFinal;
 
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-            setSupportActionBar(toolbar);
-            setContentView(R.layout.clinicas);
-            tipo = getIntent().getExtras().getString("Tipo");
-            layoutclinicas = (LinearLayout) findViewById(R.id.clinicapapa);
+    boolean Busqueda = false;
 
-            pDialog = new ProgressDialog(this);
-            pDialog.setMessage("Actualizando");
-            pDialog.setCancelable(false);
-        makeJsonArrayRequest(urlconsulta+tipo);
+    LinearLayout clinicas, layoutclinicas;
+
+    String tipo;
+
+    String urlconsulta= "http://arsus.nnbiocliniccenter.com.ve/json/last5.php?tipo=";
 
 
 
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.clinicas);
+        textView = (TextView) findViewById(R.id.textView);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        pDialog = new ProgressDialog(this);
+        pDialog.setMessage("Actualizando");
+        pDialog.setCancelable(false);
 
-
-
-
-
-            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-            ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                    this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-            drawer.setDrawerListener(toggle);
-            toggle.syncState();
-
-            NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-            navigationView.setNavigationItemSelectedListener(this);
-            if (tipo.equals("CLINICA")) {
-                navigationView.getMenu().getItem(1).setChecked(true);
-            } else {
-                navigationView.getMenu().getItem(2).setChecked(true);
-
+        LinearLayout filtro = (LinearLayout) findViewById(R.id.filtro);
+        filtro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                segundodialogo(view);
             }
+        });
+
+
+        if(getIntent().getExtras().getString("Tipo")==null){
+            UrlFinal = getIntent().getExtras().getString("urlfinal123");
+            tipo=getIntent().getExtras().getString("tipito");
+        }else {
+            tipo = getIntent().getExtras().getString("Tipo");
+            UrlFinal=urlconsulta+tipo;
         }
+
+
+        Busqueda = getIntent().getExtras().getBoolean("busqueda");
+        String desc=descripcion;
+
+        try{ if (descripcion.contains(" ")){
+
+            descripcion=descripcion.replace(" ","%20");
+        }
+
+        } catch (Exception e) {
+
+        }
+
+        layoutclinicas = (LinearLayout) findViewById(R.id.clinicapapa);
+        TextView tv = (TextView) findViewById(R.id.titulo);
+        ImageView iv = (ImageView) findViewById(R.id.imag);
+        if (tipo.equals("CLINICA")){
+            tv.setText("CLINICAS");
+            iv.setImageResource(R.mipmap.clinicas);
+        } else {
+            tv.setText("FARMACIAS");
+            iv.setImageResource(R.mipmap.farmacias);
+        }
+       // Toast.makeText(this, ""+UrlFinal, Toast.LENGTH_LONG).show();
+        makeJsonArrayRequest(UrlFinal);
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+        if (tipo.equals("CLINICA")) {
+            navigationView.getMenu().getItem(1).setChecked(true);
+        }else   {
+            navigationView.getMenu().getItem(2).setChecked(true);
+        }
+
+    }
 
 
     @Override
@@ -121,20 +180,23 @@ public class activity_clinica extends AppCompatActivity
             public boolean onQueryTextSubmit(String query) {
                 //  Toast.makeText(especialidad.this, query.toString(), Toast.LENGTH_SHORT).show();
                 //se oculta el EditText
-                try{query=query.replace(" ","%20");
+                try {
+                    query = query.replace(" ", "%20");
 
-                }catch (Exception ex){}
+                } catch (Exception ex) {
+                }
 
-/*
-                String urlfinal= urlnombreydesc+descripcion+"&nombre="+query;
+                String Urlnomytipo= "http://arsus.nnbiocliniccenter.com.ve/json/last5.php?nomcli=";
+                String urlfinal = Urlnomytipo + query + "&nombre=" + query + "&type=" + tipo;
 
-                Intent ListSong = new Intent(getApplicationContext(), especialidad.class);
-                ListSong.putExtra("urlfinal123",urlfinal);
-                ListSong.putExtra("busqueda",true);
-                ListSong.putExtra("Descripcion",descripcion);
-                ListSong.putExtra("icono",iconoX);
+                Intent ListSong = new Intent(getApplicationContext(), activity_clinica.class);
+                ListSong.putExtra("urlfinal123", urlfinal);
+                ListSong.putExtra("tipito",tipo);
+                ListSong.putExtra("busqueda", true);
+                ListSong.putExtra("Descripcion", descripcion);
+             //   ListSong.putExtra("icono", iconoX);
                 finish();
-                startActivity(ListSong);*/
+                startActivity(ListSong);
 
 
                 //makeJsonArrayRequest(urlnombreydesc+descripcion+"&nombre="+query, "nombre");
@@ -143,6 +205,7 @@ public class activity_clinica extends AppCompatActivity
                 searchView.setIconified(true);
                 return true;
             }
+
             @Override
             public boolean onQueryTextChange(String newText) {
                 //   textView.setText(newText);
@@ -191,16 +254,16 @@ public class activity_clinica extends AppCompatActivity
         } else if (id == R.id.nav_farmacias) {
             Intent ListSong = new Intent(getApplicationContext(), layout_clinica.class);
             startActivity(ListSong);
-        }  else if (id == R.id.nav_suscribase) {
-            Intent ListSong = new Intent(getApplicationContext(),layout_contacto.class);
-            ListSong.putExtra("IDMENU",id);
-            ListSong.putExtra("Opcion","Suscribase");
+        } else if (id == R.id.nav_suscribase) {
+            Intent ListSong = new Intent(getApplicationContext(), layout_contacto.class);
+            ListSong.putExtra("IDMENU", id);
+            ListSong.putExtra("Opcion", "Suscribase");
             startActivity(ListSong);
 
         } else if (id == R.id.nav_opinion) {
             Intent ListSong = new Intent(getApplicationContext(), layout_contacto.class);
-            ListSong.putExtra("IDMENU",id);
-            ListSong.putExtra("Opcion","Opinion");
+            ListSong.putExtra("IDMENU", id);
+            ListSong.putExtra("Opcion", "Opinion");
             startActivity(ListSong);
 
         } else if (id == R.id.nav_acercade) {
@@ -212,6 +275,83 @@ public class activity_clinica extends AppCompatActivity
         return true;
     }
 
+    private void showpDialog() {
+        if (!pDialog.isShowing())
+            pDialog.show();
+    }
+
+    private void hidepDialog() {
+        if (pDialog.isShowing())
+            pDialog.dismiss();
+    }
+
+
+    public void segundodialogo(View v) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        //builder.setTitle("Filtrar por:");
+
+        for (String ciudad : ciudades) {
+            if (nuevasciudades.contains(ciudad)) {
+
+            } else {
+
+                nuevasciudades.add(ciudad);
+            }
+        }
+
+        final CharSequence[] items = new CharSequence[nuevasciudades.size()];
+        for (int i = 0; i < nuevasciudades.size(); i++) {
+            items[i] = nuevasciudades.get(i);
+        }
+
+
+        builder.setTitle("Seleccione una opción:")
+                .setSingleChoiceItems(items, 0, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //   Toast.makeText(especialidad.this, ""+items[which], Toast.LENGTH_SHORT).show();
+                        //url de ubicacion y a jsonear!
+                        final CharSequence[] items = new CharSequence[nuevasciudades.size()];
+                        for (int i = 0; i < nuevasciudades.size(); i++) {
+                            items[i] = nuevasciudades.get(i).replace(" ", "%20");
+                        }
+
+                        //String ultimaciudad= ciudad.replace(" ","%20");
+                        String laurl;
+                        laurl="http://arsus.nnbiocliniccenter.com.ve/json/last5.php?ciudadcli="+items[which]+"&typeof="+tipo;
+
+                        if (descripcion==null){
+                             laurl="http://arsus.nnbiocliniccenter.com.ve/json/last5.php?ciudadcli="+items[which]+"&typeof="+tipo;
+                        }else {
+                             laurl ="http://arsus.nnbiocliniccenter.com.ve/json/last5.php?cicl="+items[which]+"&nocli="+descripcion+
+                                    "&typeofc="+tipo;
+                        }
+
+
+                        //  Toast.makeText(especialidad.this, ""+laurl, Toast.LENGTH_LONG).show();
+                      //  makeJsonArrayRequest(laurl);
+
+                        Intent ListSong = new Intent(getApplicationContext(), activity_clinica.class);
+
+                        ListSong.putExtra("urlfinal123", laurl);
+                        ListSong.putExtra("busqueda", true);
+                        ListSong.putExtra("Descripcion", descripcion);
+                        ListSong.putExtra("tipito", tipo);
+                    //    ListSong.putExtra("icono", iconoX);
+
+                        startActivity(ListSong);
+
+
+                        dialog.dismiss();
+                    }
+                });
+
+
+        Dialog dialog = builder.create();
+        dialog.show();
+        ;
+
+    }
 
 
     //JSON ARRAY
@@ -236,20 +376,21 @@ public class activity_clinica extends AppCompatActivity
                                 JSONObject person = (JSONObject) response
                                         .get(i);
                                 String id= person.getString("idCli");
-                                String nombre = person.getString("nombreCli");
-                                String img = person.getString("urlCli");
-                                String desc = person.getString("descripcionCli");
-                                String ciudad = person.getString("ciudadCli");
-                                String estado= person.getString("estadoCli");
-                                String latitud = person.getString("latitudCli");
-                                String longitud = person.getString("longitudCli");
-                                String direccion= person.getString("direccionCli");
-                                String telefono=person.getString("telefonoCli");
-                                String correo = person.getString("correoCli");
+                                final String nombre = person.getString("nombreCli");
+                                final String img = person.getString("urlCli");
+                                final String desc = person.getString("descripcionCli");
+                                final String ciudad = person.getString("ciudadCli");
+                                final String estado= person.getString("estadoCli");
+                                final String latitud = person.getString("latitudCli");
+                                final String longitud = person.getString("longitudCli");
+                                final String direccion= person.getString("direccionCli");
+                                final String telefono=person.getString("telefonoCli");
+                                final String correo = person.getString("correoCli");
+                                ciudades.add(person.getString("ciudadCli"));
 
                                 clinicas = (LinearLayout) LayoutInflater.from(getApplicationContext())
                                         .inflate(R.layout.clinica, null);
-
+                                ArrayList elementos;
 
                                 ImageView imagen = (ImageView) clinicas.findViewById(R.id.imacli);
                                 TextView textoNombre = (TextView) clinicas.findViewById(R.id.nomcli);
@@ -262,12 +403,24 @@ public class activity_clinica extends AppCompatActivity
 
                                         //  Toast.makeText(activity_clinica.this, "clinica "+ finalI, Toast.LENGTH_SHORT).show();
                                         //aqui el fucking json que rellena ese pan canilla
+                                        Intent ListSong = new Intent(getApplicationContext(),layout_clinica.class);
+                                        ListSong.putExtra("Nombre",nombre);
+                                        ListSong.putExtra("Imagen",img);
+                                        ListSong.putExtra("Ciudad",ciudad);
+                                        ListSong.putExtra("Descripcion",desc);
+                                        ListSong.putExtra("Estado",estado);
+                                        ListSong.putExtra("Direccion",direccion);
+                                        ListSong.putExtra("Telefono",telefono);
+                                        ListSong.putExtra("Correo",correo);
+                                        ListSong.putExtra("Latitud",latitud);
+                                        ListSong.putExtra("Longitud",longitud);
+                                        startActivity(ListSong);
                                     }
                                 });
                                 textoNombre.setText(nombre);
                                 ciudadcli.setText(ciudad+" - " + estado);
 
-                                Picasso.with(getApplicationContext()).load(img).into(imagen);
+                                Picasso.with(getApplicationContext()).load(img).fit().into(imagen);
 
                                 layoutclinicas.addView(clinicas);
 
@@ -334,32 +487,7 @@ public class activity_clinica extends AppCompatActivity
         Volley.newRequestQueue(this).add(req);
     }
 
-
-    private void showpDialog() {
-        if (!pDialog.isShowing())
-            pDialog.show();
-    }
-
-    private void hidepDialog() {
-        if (pDialog.isShowing())
-            pDialog.dismiss();
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //FIN DE JSON ARRAY
+ //FIN DE JSON ARRAY
 
     //JSON OBJECT
     private void makeJsonObjectRequest(String url) {
@@ -473,6 +601,8 @@ public class activity_clinica extends AppCompatActivity
     //FIN JSONO
 
 
-    }
 
 
+
+
+}
