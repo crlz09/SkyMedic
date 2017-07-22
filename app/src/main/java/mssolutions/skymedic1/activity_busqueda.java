@@ -509,10 +509,9 @@ public class activity_busqueda extends AppCompatActivity
 
     }
 
-
     public void segundodialogo (View v){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        //builder.setTitle("Filtrar por:");
+        //builder.setTitle("Filtrar por:")
 
         for (String ciudad: ciudades) {
             if (nuevasciudades.contains(ciudad)){
