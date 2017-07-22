@@ -135,14 +135,12 @@ public class layout_descmujer extends AppCompatActivity implements NavigationVie
 
 
         } else if (id == R.id.nav_clinicas) {
-
-            Intent ListSong = new Intent(getApplicationContext(), layout_clinica.class);
-            ListSong.putExtra("IDMENU",id);
+            Intent ListSong = new Intent(getApplicationContext(), activity_clinica.class);
+            ListSong.putExtra("Tipo","CLINICA");
             startActivity(ListSong);
-
         } else if (id == R.id.nav_farmacias) {
-            Intent ListSong = new Intent(getApplicationContext(), layout_clinica.class);
-            ListSong.putExtra("IDMENU",id);
+            Intent ListSong = new Intent(getApplicationContext(), activity_clinica.class);
+            ListSong.putExtra("Tipo","FARMACIA");
             startActivity(ListSong);
         }  else if (id == R.id.nav_suscribase) {
             Intent ListSong = new Intent(getApplicationContext(),layout_contacto.class);
