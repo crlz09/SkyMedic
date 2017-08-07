@@ -316,11 +316,11 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_splash"
+            android:src="@mipmap/ic_launcher"
             android:adjustViewBounds="false"
             android:cropToPadding="false"
-            android:scaleX="1.50"
-            android:scaleY="1.50" />
+            android:scaleX="1"
+            android:scaleY="1" />
     </LinearLayout>
 
     </LinearLayout>

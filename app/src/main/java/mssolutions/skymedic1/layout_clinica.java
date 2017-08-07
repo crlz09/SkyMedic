@@ -1,6 +1,7 @@
 package mssolutions.skymedic1;
 
 import android.app.AlertDialog;
+import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -90,6 +91,25 @@ public class layout_clinica  extends AppCompatActivity implements NavigationView
                 Intent i = new Intent(Intent.ACTION_DIAL);
                 i.setData(Uri.parse(num));
                 startActivity(i);
+            }
+        });
+
+        TextView usuarioInstagram = (TextView)findViewById(R.id.usuInstagram);
+
+        usuarioInstagram.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri uri = Uri.parse("http://instagram.com/_u/migueelsv");
+                Intent likeIng = new Intent(Intent.ACTION_VIEW, uri);
+
+                likeIng.setPackage("com.instagram.android");
+
+                try {
+                    startActivity(likeIng);
+                } catch (ActivityNotFoundException e) {
+                    startActivity(new Intent(Intent.ACTION_VIEW,
+                            Uri.parse("http://instagram.com/migueelsv")));
+                }
             }
         });
 

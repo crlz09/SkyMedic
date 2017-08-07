@@ -170,7 +170,9 @@
                     android:layout_marginRight="10dp"
                     android:text="centromedic@gmail.com"
                     android:textAlignment="center"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:clickable="true"
+                    android:autoLink="email"/>
 
             </LinearLayout>
 
@@ -189,6 +191,7 @@
                     android:layout_width="30dp" />
 
                 <TextView
+                    android:id="@+id/usuInstagram"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/arroba"

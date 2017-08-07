@@ -2,8 +2,10 @@ package mssolutions.skymedic1;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -130,6 +132,8 @@ public class activity_clinica extends AppCompatActivity
             iv.setImageResource(R.mipmap.farmacias);
         }
 
+
+
         makeJsonArrayRequest(UrlFinal);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -235,27 +239,34 @@ public class activity_clinica extends AppCompatActivity
 
             Intent ListSong = new Intent(getApplicationContext(), Activity_especialidades.class);
             startActivity(ListSong);
+            finish();
 
 
         } else if (id == R.id.nav_clinicas) {
             Intent ListSong = new Intent(getApplicationContext(), activity_clinica.class);
             ListSong.putExtra("Tipo","CLINICA");
             startActivity(ListSong);
+            finish();
+
         } else if (id == R.id.nav_farmacias) {
             Intent ListSong = new Intent(getApplicationContext(), activity_clinica.class);
             ListSong.putExtra("Tipo","FARMACIA");
             startActivity(ListSong);
+            finish();
+
         } else if (id == R.id.nav_suscribase) {
             Intent ListSong = new Intent(getApplicationContext(), layout_contacto.class);
             ListSong.putExtra("IDMENU", id);
             ListSong.putExtra("Opcion", "Suscribase");
             startActivity(ListSong);
+            finish();
 
         } else if (id == R.id.nav_opinion) {
             Intent ListSong = new Intent(getApplicationContext(), layout_contacto.class);
             ListSong.putExtra("IDMENU", id);
             ListSong.putExtra("Opcion", "Opinion");
             startActivity(ListSong);
+            finish();
 
         } else if (id == R.id.nav_acercade) {
 

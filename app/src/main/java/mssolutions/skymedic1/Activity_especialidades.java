@@ -144,27 +144,32 @@ public class Activity_especialidades  extends AppCompatActivity implements Navig
             Intent ListSong = new Intent(getApplicationContext(), Activity_especialidades.class);
             ListSong.putExtra("IDMENU",id);
             startActivity(ListSong);
+            finish();
         } else if (id == R.id.nav_clinicas) {
             Intent ListSong = new Intent(getApplicationContext(), activity_clinica.class);
             ListSong.putExtra("Tipo","CLINICA");
             startActivity(ListSong);
+            finish();
         } else if (id == R.id.nav_farmacias) {
             Intent ListSong = new Intent(getApplicationContext(), activity_clinica.class);
             ListSong.putExtra("Tipo","FARMACIA");
             startActivity(ListSong);
-            }  else if (id == R.id.nav_suscribase) {
-            Intent ListSong = new Intent(getApplicationContext(),layout_contacto.class);
-            ListSong.putExtra("IDMENU",id);
-            ListSong.putExtra("Opcion","Suscribase");
-            startActivity(ListSong);
+            finish();
+        }  else if (id == R.id.nav_suscribase) {
+        Intent ListSong = new Intent(getApplicationContext(),layout_contacto.class);
+        ListSong.putExtra("IDMENU",id);
+        ListSong.putExtra("Opcion","Suscribase");
+        startActivity(ListSong);
+            finish();
 
-            } else if (id == R.id.nav_opinion) {
-            Intent ListSong = new Intent(getApplicationContext(), layout_contacto.class);
-            ListSong.putExtra("IDMENU",id);
-            ListSong.putExtra("Opcion","Opinion");
-            startActivity(ListSong);
+        } else if (id == R.id.nav_opinion) {
+        Intent ListSong = new Intent(getApplicationContext(), layout_contacto.class);
+        ListSong.putExtra("IDMENU",id);
+        ListSong.putExtra("Opcion","Opinion");
+        startActivity(ListSong);
+            finish();
 
-            } else if (id == R.id.nav_acercade) {
+        } else if (id == R.id.nav_acercade) {
 
         }
 
