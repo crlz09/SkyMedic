@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -48,6 +49,17 @@ public class layout_deschombre  extends AppCompatActivity implements NavigationV
         telefonoTV.setText(tel);
         correoTV.setText(cor);
 
+        ImageView sky=(ImageView) findViewById(R.id.skyenhombre);
+        sky.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent vete=new Intent(getApplicationContext(),MainActivity.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                finish();
+                startActivity(vete);
+                finish();
+            }
+        });
 
 
         final String num ="tel:"+ telf.getText().toString();

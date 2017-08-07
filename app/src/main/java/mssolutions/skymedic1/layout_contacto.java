@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,6 +14,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.util.Patterns;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -20,6 +22,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import java.util.regex.Pattern;
 
 import mssolutions.skymedic1.app.correo;
 
@@ -31,7 +35,7 @@ public class layout_contacto extends AppCompatActivity implements NavigationView
 
     correo nuevocorreo= new correo();
 
-    String asunto;
+    String asunto, Nnombre, Ncorreo, Ntelefono, Nmensaje;
 
     // Progress dialog
     private ProgressDialog pDialog;
@@ -65,6 +69,8 @@ public class layout_contacto extends AppCompatActivity implements NavigationView
         final EditText ETtelefono = (EditText) findViewById(R.id.ETtelefono);
         final EditText ETmensaje = (EditText) findViewById(R.id.ETmensaje);
 
+        final EnviarCorreo enviarCorreo = new EnviarCorreo();
+
 
 
         enviar.setOnClickListener(new View.OnClickListener() {
@@ -74,17 +80,62 @@ public class layout_contacto extends AppCompatActivity implements NavigationView
 
                 if (isOnline()){
                     showpDialog();
+                    
+                    boolean validator = true;
 
-                    nuevocorreo.enviarcorreo(ETcorreo.getText().toString(),asunto,ETmensaje.getText().toString(),
-                            ETtelefono.getText().toString(),ETnombre.getText().toString());
+                    Nnombre = ETnombre.getText().toString();
+                    Ncorreo = ETcorreo.getText().toString();
+                    Ntelefono = ETtelefono.getText().toString();
+                    Nmensaje = ETmensaje.getText().toString();
+
+                    if (Nnombre.matches("")){
+                        ETnombre.setError("No puede estar vacio");
+                        validator = false;
+                    }
+
+                    if (Ncorreo.matches("")){
+                        ETcorreo.setError("No puede estar vacio");
+                        validator = false;
+                    }
+
+                    if (Ntelefono.matches("")){
+                        ETtelefono.setError("No puede estar vacio");
+                        validator = false;
+                    }
+
+                    if (Nmensaje.matches("")){
+                        ETmensaje.setError("No puede estar vacio");
+                        validator = false;
+                    }
+
+                    if (!validarEmail(Ncorreo)){
+                        ETcorreo.setError("Email no válido");
+                        validator = false;
+                    }
+                    
+                    if (validator){
+                        enviarCorreo.execute();
+
+                        ETtelefono.setText("");
+                        ETcorreo.setText("");
+                        ETmensaje.setText("");
+                        ETnombre.setText("");
+
+                        Toast.makeText(layout_contacto.this, "Mensaje enviado...", Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(layout_contacto.this, "No se envio", Toast.LENGTH_SHORT).show();
+                    }
+
+                    //nuevocorreo.enviarcorreo(ETcorreo.getText().toString(),asunto,ETmensaje.getText().toString(),
+                            //ETtelefono.getText().toString(),ETnombre.getText().toString());
 
                     hidepDialog();
-                    Toast.makeText(layout_contacto.this, ""+nuevocorreo.respuesta, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(layout_contacto.this, ""+nuevocorreo.respuesta, Toast.LENGTH_SHORT).show();
 
-                    ETtelefono.setText("");
+                    /*ETtelefono.setText("");
                     ETcorreo.setText("");
                     ETmensaje.setText("");
-                    ETnombre.setText("");
+                    ETnombre.setText("");*/
                 }
 
             }
@@ -107,6 +158,29 @@ public class layout_contacto extends AppCompatActivity implements NavigationView
             navigationView.getMenu().getItem(3).setChecked(true);
         }else {navigationView.getMenu().getItem(4).setChecked(true); }
 
+    }
+
+    private boolean validarEmail(String email) {
+        Pattern pattern = Patterns.EMAIL_ADDRESS;
+        return pattern.matcher(email).matches();
+    }
+
+    private class EnviarCorreo extends AsyncTask<Void,Void,Void>{
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            nuevocorreo.enviarcorreo(Ncorreo,asunto,Nmensaje,Ntelefono,Nnombre);
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+        }
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -172,27 +246,32 @@ public class layout_contacto extends AppCompatActivity implements NavigationView
 
             Intent ListSong = new Intent(getApplicationContext(), Activity_especialidades.class);
             startActivity(ListSong);
+            finish();
 
 
         } else if (id == R.id.nav_clinicas) {
             Intent ListSong = new Intent(getApplicationContext(), activity_clinica.class);
             ListSong.putExtra("Tipo","CLINICA");
             startActivity(ListSong);
+            finish();
         } else if (id == R.id.nav_farmacias) {
             Intent ListSong = new Intent(getApplicationContext(), activity_clinica.class);
             ListSong.putExtra("Tipo","FARMACIA");
             startActivity(ListSong);
+            finish();
         }   else if (id == R.id.nav_suscribase) {
             Intent ListSong = new Intent(getApplicationContext(),layout_contacto.class);
             ListSong.putExtra("IDMENU",id);
             ListSong.putExtra("Opcion","Suscribase");
             startActivity(ListSong);
+            finish();
 
         } else if (id == R.id.nav_opinion) {
             Intent ListSong = new Intent(getApplicationContext(), layout_contacto.class);
             ListSong.putExtra("IDMENU",id);
             ListSong.putExtra("Opcion","Opinion");
             startActivity(ListSong);
+            finish();
 
         } else if (id == R.id.nav_acercade) {
 

@@ -2,8 +2,10 @@ package mssolutions.skymedic1;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -130,6 +132,8 @@ public class activity_clinica extends AppCompatActivity
             iv.setImageResource(R.mipmap.farmacias);
         }
 
+
+
         makeJsonArrayRequest(UrlFinal);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -235,27 +239,34 @@ public class activity_clinica extends AppCompatActivity
 
             Intent ListSong = new Intent(getApplicationContext(), Activity_especialidades.class);
             startActivity(ListSong);
+            finish();
 
 
         } else if (id == R.id.nav_clinicas) {
             Intent ListSong = new Intent(getApplicationContext(), activity_clinica.class);
             ListSong.putExtra("Tipo","CLINICA");
             startActivity(ListSong);
+            finish();
+
         } else if (id == R.id.nav_farmacias) {
             Intent ListSong = new Intent(getApplicationContext(), activity_clinica.class);
             ListSong.putExtra("Tipo","FARMACIA");
             startActivity(ListSong);
+            finish();
+
         } else if (id == R.id.nav_suscribase) {
             Intent ListSong = new Intent(getApplicationContext(), layout_contacto.class);
             ListSong.putExtra("IDMENU", id);
             ListSong.putExtra("Opcion", "Suscribase");
             startActivity(ListSong);
+            finish();
 
         } else if (id == R.id.nav_opinion) {
             Intent ListSong = new Intent(getApplicationContext(), layout_contacto.class);
             ListSong.putExtra("IDMENU", id);
             ListSong.putExtra("Opcion", "Opinion");
             startActivity(ListSong);
+            finish();
 
         } else if (id == R.id.nav_acercade) {
 
@@ -431,16 +442,16 @@ public class activity_clinica extends AppCompatActivity
                 String message = null;
                 if (error instanceof NetworkError) {
                     message = "Cannot connect to Internet...Please check your connection!";
-                    Intent abreme = new Intent(getApplicationContext(),error_main.class);
+                    Intent abreme = new Intent(getApplicationContext(),activity_internet.class);
                     startActivity(abreme);
                 } else if (error instanceof ServerError) {
                     message = "The server could not be found. Please try again after some time!!";
-                    Intent abreme = new Intent(getApplicationContext(),error_main.class);
+                    Intent abreme = new Intent(getApplicationContext(),activity_internet.class);
 
                     startActivity(abreme);
                 } else if (error instanceof AuthFailureError) {
                     message = "Cannot connect to Internet...Please check your connection!";
-                    Intent abreme = new Intent(getApplicationContext(),error_main.class);
+                    Intent abreme = new Intent(getApplicationContext(),activity_internet.class);
 
                     startActivity(abreme);
                 } else if (error instanceof ParseError) {
@@ -451,7 +462,7 @@ public class activity_clinica extends AppCompatActivity
                 } else if (error instanceof NoConnectionError) {
                     message = "Cannot connect to Internet...Please check your connection!";
                 } else if (error instanceof TimeoutError) {
-                    Intent abreme = new Intent(getApplicationContext(),error_main.class);
+                    Intent abreme = new Intent(getApplicationContext(),activity_internet.class);
 
                     startActivity(abreme);
                     message = "Connection TimeOut! Please check your internet connection.";
