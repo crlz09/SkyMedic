@@ -442,16 +442,16 @@ public class activity_clinica extends AppCompatActivity
                 String message = null;
                 if (error instanceof NetworkError) {
                     message = "Cannot connect to Internet...Please check your connection!";
-                    Intent abreme = new Intent(getApplicationContext(),error_main.class);
+                    Intent abreme = new Intent(getApplicationContext(),activity_internet.class);
                     startActivity(abreme);
                 } else if (error instanceof ServerError) {
                     message = "The server could not be found. Please try again after some time!!";
-                    Intent abreme = new Intent(getApplicationContext(),error_main.class);
+                    Intent abreme = new Intent(getApplicationContext(),activity_internet.class);
 
                     startActivity(abreme);
                 } else if (error instanceof AuthFailureError) {
                     message = "Cannot connect to Internet...Please check your connection!";
-                    Intent abreme = new Intent(getApplicationContext(),error_main.class);
+                    Intent abreme = new Intent(getApplicationContext(),activity_internet.class);
 
                     startActivity(abreme);
                 } else if (error instanceof ParseError) {
@@ -462,7 +462,7 @@ public class activity_clinica extends AppCompatActivity
                 } else if (error instanceof NoConnectionError) {
                     message = "Cannot connect to Internet...Please check your connection!";
                 } else if (error instanceof TimeoutError) {
-                    Intent abreme = new Intent(getApplicationContext(),error_main.class);
+                    Intent abreme = new Intent(getApplicationContext(),activity_internet.class);
 
                     startActivity(abreme);
                     message = "Connection TimeOut! Please check your internet connection.";

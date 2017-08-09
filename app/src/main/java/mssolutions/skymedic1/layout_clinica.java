@@ -83,6 +83,22 @@ public class layout_clinica  extends AppCompatActivity implements NavigationView
         TVdesc.setText(desc);
         TVdireccion.setText(direccion);
 
+        ImageView sky = (ImageView) findViewById(R.id.skyhome);
+
+        sky.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent vete=new Intent(getApplicationContext(),MainActivity.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                        finish();
+                startActivity(vete);
+                finish();
+            }
+        });
+
+
+
+
         telf.setText(telefono);
         final String num ="tel:"+ telf.getText().toString();
         telf.setOnClickListener(new View.OnClickListener() {

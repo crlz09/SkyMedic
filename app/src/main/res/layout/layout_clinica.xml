@@ -300,6 +300,7 @@
 
             <ImageView
                 android:src="@mipmap/ic_launcher"
+                android:id="@+id/skyhome"
                 android:scaleX="1.50"
                 android:scaleY="1.50"
                 android:paddingTop="10dp"
