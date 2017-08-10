@@ -72,7 +72,7 @@ public class layout_clinica  extends AppCompatActivity implements NavigationView
         TextView telf = (TextView) findViewById(R.id.telefonoclinicaf);
         LinearLayout fondo= (LinearLayout) findViewById(R.id.fondo_cli_far);
         if (tipo.equals("CLINICA")){
-                fondo.setBackgroundColor((Color.parseColor("#3dbb76")));
+                fondo.setBackgroundColor((Color.parseColor("#68cc2e")));
                 }else {
             fondo.setBackgroundColor((Color.parseColor("#1996bd")));
         }

@@ -36,6 +36,7 @@ public class error_main extends AppCompatActivity implements NavigationView.OnNa
             @Override
             public void onClick(View view) {
                 Intent principal = new Intent(getApplicationContext(), MainActivity.class);
+                finish();
                 startActivity(principal);
             }
         });

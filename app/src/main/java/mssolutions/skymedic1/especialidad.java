@@ -373,16 +373,17 @@ public class especialidad extends AppCompatActivity
                 if (error instanceof NetworkError) {
                     message = "Cannot connect to Internet...Please check your connection!";
                     Intent abreme = new Intent(getApplicationContext(),activity_internet.class);
+                    finish();
                     startActivity(abreme);
                 } else if (error instanceof ServerError) {
                     message = "The server could not be found. Please try again after some time!!";
                     Intent abreme = new Intent(getApplicationContext(),activity_internet.class);
-
+                    finish();
                     startActivity(abreme);
                 } else if (error instanceof AuthFailureError) {
                     message = "Cannot connect to Internet...Please check your connection!";
                     Intent abreme = new Intent(getApplicationContext(),activity_internet.class);
-
+                    finish();
                     startActivity(abreme);
                 } else if (error instanceof ParseError) {
                     Intent abreme = new Intent(getApplicationContext(),activity_error.class);
@@ -394,7 +395,7 @@ public class especialidad extends AppCompatActivity
                     message = "Cannot connect to Internet...Please check your connection!";
                 } else if (error instanceof TimeoutError) {
                     Intent abreme = new Intent(getApplicationContext(),activity_internet.class);
-
+                    finish();
                     startActivity(abreme);
                     message = "Connection TimeOut! Please check your internet connection.";
                 }
@@ -504,16 +505,17 @@ public class especialidad extends AppCompatActivity
                 if (error instanceof NetworkError) {
                     message = "Cannot connect to Internet...Please check your connection!";
                     Intent abreme = new Intent(getApplicationContext(),activity_internet.class);
+                    finish();
                     startActivity(abreme);
                 } else if (error instanceof ServerError) {
                     message = "The server could not be found. Please try again after some time!!";
                     Intent abreme = new Intent(getApplicationContext(),activity_internet.class);
-
+                    finish();
                     startActivity(abreme);
                 } else if (error instanceof AuthFailureError) {
                     message = "Cannot connect to Internet...Please check your connection!";
                     Intent abreme = new Intent(getApplicationContext(),activity_internet.class);
-
+                    finish();
                     startActivity(abreme);
                 } else if (error instanceof ParseError) {
                     Intent abreme = new Intent(getApplicationContext(),activity_error.class);
@@ -525,7 +527,7 @@ public class especialidad extends AppCompatActivity
                     message = "Cannot connect to Internet...Please check your connection!";
                 } else if (error instanceof TimeoutError) {
                     Intent abreme = new Intent(getApplicationContext(),activity_internet.class);
-
+                    finish();
                     startActivity(abreme);
                     message = "Connection TimeOut! Please check your internet connection.";
                 }
