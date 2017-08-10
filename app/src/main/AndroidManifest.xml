@@ -146,6 +146,13 @@
 
 
         </activity>
+        <activity android:name=".layout_acercade"
+            android:label="Acerca De"
+            android:theme="@style/AppTheme.NoActionBar">
+
+
+
+        </activity>
 
 
 
