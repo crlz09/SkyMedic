@@ -2,6 +2,7 @@
 <resources>
     <color name="colorPrimary">#02CCEC</color>
     <color name="colorPrimaryDark">#00b7d4</color>
+    <color name="verdeFondoClinicas">#8dca41</color>
     <color name="colorAccent">#02ccec</color>
     <color name="descMujer">#fe797a</color>
     <color name="descHombre">#6dbcd4</color>

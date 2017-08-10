@@ -45,7 +45,7 @@
                 android:id="@+id/fondo_cli_far"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@android:color/darker_gray"
+                android:background="@color/verdeFondoClinicas"
                 android:orientation="vertical"
                 android:paddingBottom="15dp"
                 android:paddingLeft="10dp"
@@ -118,7 +118,7 @@
                     android:layout_height="wrap_content"
                     android:text="Rama de la medicina que estudia las enfermedades de la infancia (hasta los 14 años). Incluyendo el cuidado de la salud y el crecimiento de los niños y la prevención de sus enfermedades."
                     android:textColorLink="?attr/actionModeSplitBackground"
-                    android:textSize="14sp" />
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
@@ -144,7 +144,7 @@
                     android:layout_marginRight="10dp"
                     android:text="04245127896 / 04268524512"
                     android:textAlignment="center"
-                    android:textSize="12sp" />
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
@@ -170,7 +170,7 @@
                     android:layout_marginRight="10dp"
                     android:text="centromedic@gmail.com"
                     android:textAlignment="center"
-                    android:textSize="12sp"
+                    android:textSize="16sp"
                     android:clickable="true"
                     android:autoLink="email"/>
 
@@ -195,7 +195,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/arroba"
-                    android:textSize="12sp"
+                    android:textSize="16sp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:textAlignment="center" />
@@ -223,8 +223,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:text="Especialidad que estudia de las enfermedades hematológicas, es decir, de la sangre y los órganos que la producen."
-                    android:textAlignment="viewStart"
-                    android:textSize="12sp" />
+                    android:textSize="16sp" />
 
             </LinearLayout>
 

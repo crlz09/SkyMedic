@@ -181,11 +181,12 @@
         </LinearLayout>
 
         <ImageView
+            android:id="@+id/skyenhombre"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_splash"
+            android:src="@mipmap/ic_launcher"
             android:layout_width="match_parent"
-            android:scaleX="1.50"
-            android:scaleY="1.50"
+            android:scaleX="1"
+            android:scaleY="1"
             android:paddingTop="10dp" />
 
     </LinearLayout>

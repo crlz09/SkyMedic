@@ -184,6 +184,7 @@
         </LinearLayout>
 
         <ImageView
+            android:id="@+id/skyenmujer"
             android:layout_height="wrap_content"
             android:src="@mipmap/ic_launcher"
             android:layout_width="match_parent"

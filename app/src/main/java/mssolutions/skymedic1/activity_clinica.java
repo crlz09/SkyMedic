@@ -380,6 +380,7 @@ public class activity_clinica extends AppCompatActivity
                                 final String direccion= person.getString("direccionCli");
                                 final String telefono=person.getString("telefonoCli");
                                 final String correo = person.getString("correoCli");
+                                final String instagram = person.getString("instagramCli");
                                 ciudades.add(person.getString("ciudadCli"));
 
                                 clinicas = (LinearLayout) LayoutInflater.from(getApplicationContext())
@@ -406,6 +407,7 @@ public class activity_clinica extends AppCompatActivity
                                         ListSong.putExtra("Correo",correo);
                                         ListSong.putExtra("Latitud",latitud);
                                         ListSong.putExtra("Longitud",longitud);
+                                        ListSong.putExtra("Instagram",instagram);
                                         ListSong.putExtra("tipo",tipo);
                                         startActivity(ListSong);
                                     }
@@ -506,6 +508,7 @@ public class activity_clinica extends AppCompatActivity
                     final String direccion= response.getString("direccionCli");
                     final String telefono=response.getString("telefonoCli");
                     final String correo = response.getString("correoCli");
+                    final String instagram = response.getString("instagramCli");
 
                     clinicas = (LinearLayout) LayoutInflater.from(getApplicationContext())
                             .inflate(R.layout.clinica, null);
@@ -530,6 +533,7 @@ public class activity_clinica extends AppCompatActivity
                             ListSong.putExtra("Correo",correo);
                             ListSong.putExtra("Latitud",latitud);
                             ListSong.putExtra("Longitud",longitud);
+                            ListSong.putExtra("Instagram",instagram);
                             ListSong.putExtra("tipo",tipo);
                             startActivity(ListSong);
 

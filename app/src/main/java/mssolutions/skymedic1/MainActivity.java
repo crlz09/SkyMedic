@@ -24,6 +24,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkError;
@@ -256,6 +257,7 @@ public String consulta;
                 Intent busca = new Intent(getApplicationContext(),activity_busqueda.class);
                 busca.putExtra("Url",urlfinal);
                 busca.putExtra("Consulta",consulta);
+                startActivity(busca);
                 //se oculta el EditText
                 searchView.setQuery("", false);
                 searchView.setIconified(true);

@@ -45,7 +45,7 @@ public class layout_clinica  extends AppCompatActivity implements NavigationView
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_clinica);
 
-        final String nombre,img,ciudad,desc,estado,direccion,telefono,correo,latitud,longitud,tipo;
+        final String nombre,img,ciudad,desc,estado,direccion,telefono,correo,latitud,longitud,tipo,instagram;
 
         nombre=getIntent().getExtras().getString("Nombre");
         img=getIntent().getExtras().getString("Imagen");
@@ -55,6 +55,7 @@ public class layout_clinica  extends AppCompatActivity implements NavigationView
         direccion=getIntent().getExtras().getString("Direccion");
         correo=getIntent().getExtras().getString("Correo");
         telefono=getIntent().getExtras().getString("Telefono");
+        instagram = getIntent().getExtras().getString("Instagram");
         latitud=getIntent().getExtras().getString("Latitud");
         longitud=getIntent().getExtras().getString("Longitud");
         tipo=getIntent().getExtras().getString("tipo");
@@ -115,7 +116,7 @@ public class layout_clinica  extends AppCompatActivity implements NavigationView
         usuarioInstagram.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Uri uri = Uri.parse("http://instagram.com/_u/migueelsv");
+                Uri uri = Uri.parse("http://instagram.com/_u/"+instagram);
                 Intent likeIng = new Intent(Intent.ACTION_VIEW, uri);
 
                 likeIng.setPackage("com.instagram.android");
@@ -124,7 +125,7 @@ public class layout_clinica  extends AppCompatActivity implements NavigationView
                     startActivity(likeIng);
                 } catch (ActivityNotFoundException e) {
                     startActivity(new Intent(Intent.ACTION_VIEW,
-                            Uri.parse("http://instagram.com/migueelsv")));
+                            Uri.parse("http://instagram.com/"+instagram)));
                 }
             }
         });

@@ -24,6 +24,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkError;
@@ -66,7 +67,7 @@ public class especialidad extends AppCompatActivity
     // temporary string to show the parsed response
     private String jsonResponse;
 
-    String descripcion, iconoS, UrlFinal;
+    String descripcion, iconoS, UrlFinal,queryy;
 
     boolean Busqueda = false;
 
@@ -105,6 +106,7 @@ public class especialidad extends AppCompatActivity
 
         Busqueda = getIntent().getExtras().getBoolean("busqueda");
         descripcion = getIntent().getExtras().getString("Descripcion");
+        queryy = getIntent().getExtras().getString("Query");
         String desc=descripcion;
 
           try{ if (descripcion.contains(" ")){
@@ -185,6 +187,7 @@ public class especialidad extends AppCompatActivity
                 ListSong.putExtra("busqueda",true);
                 ListSong.putExtra("Descripcion",descripcion);
                 ListSong.putExtra("icono",iconoX);
+                ListSong.putExtra("Query",query);
                 finish();
                 startActivity(ListSong);
 
@@ -384,6 +387,7 @@ public class especialidad extends AppCompatActivity
                 } else if (error instanceof ParseError) {
                     Intent abreme = new Intent(getApplicationContext(),activity_error.class);
                     finish();
+                    abreme.putExtra("Consulta",queryy);
                     startActivity(abreme);
                     message = "Parsing error! Please try again after some time!!";
                 } else if (error instanceof NoConnectionError) {
@@ -514,6 +518,7 @@ public class especialidad extends AppCompatActivity
                 } else if (error instanceof ParseError) {
                     Intent abreme = new Intent(getApplicationContext(),activity_error.class);
                     finish();
+                    abreme.putExtra("Consulta",queryy);
                     startActivity(abreme);
                     message = "Parsing error! Please try again after some time!!";
                 } else if (error instanceof NoConnectionError) {
