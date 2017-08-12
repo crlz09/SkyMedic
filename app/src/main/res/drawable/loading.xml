@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android" android:oneshot="false" >
+
+        <item android:drawable="@drawable/loa1" android:duration="50" />
+        <item android:drawable="@drawable/loa2" android:duration="50" />
+        <item android:drawable="@drawable/loa3" android:duration="50" />
+        <item android:drawable="@drawable/loa4" android:duration="50" />
+        <item android:drawable="@drawable/loa5" android:duration="50" />
+        <item android:drawable="@drawable/loa6" android:duration="50" />
+        <item android:drawable="@drawable/loa7" android:duration="50" />
+        <item android:drawable="@drawable/loa8" android:duration="50" />
+        <item android:drawable="@drawable/loa9" android:duration="50" />
+        <item android:drawable="@drawable/loa10" android:duration="50" />
+        <item android:drawable="@drawable/loa11" android:duration="50" />
+        <item android:drawable="@drawable/loa12" android:duration="50" />
+        <item android:drawable="@drawable/loa13" android:duration="50" />
+        <item android:drawable="@drawable/loa14" android:duration="50" />
+        <item android:drawable="@drawable/loa15" android:duration="50" />
+        <item android:drawable="@drawable/loa16" android:duration="50" />
+        <item android:drawable="@drawable/loa17" android:duration="50" />
+        <item android:drawable="@drawable/loa18" android:duration="50" />
+        <item android:drawable="@drawable/loa19" android:duration="50" />
+        <item android:drawable="@drawable/loa20" android:duration="50" />
+
+</animation-list>
+
+<!--
+     <shape xmlns:android="http://schemas.android.com/apk/res/android">
+        <solid android:color="#FFFFFF"/>
+        <stroke android:width="2dip" android:color="#17161C" />
+
+        <padding android:left="5dip" android:top="5dip" android:right="5dip" android:bottom="5dip" />
+    </shape>-->

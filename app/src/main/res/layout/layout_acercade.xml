@@ -44,7 +44,6 @@
                 android:layout_marginTop="30dp"
                 android:background="@drawable/border"
                 android:orientation="vertical"
-                android:paddingBottom="20dp"
                 android:paddingTop="20dp">
 
                 <ImageView
@@ -76,6 +75,47 @@
                     android:gravity="center"
                     android:text="www.skymedic.com.ve"
                     android:textSize="18dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#3f3f3f"
+                    android:orientation="vertical"
+                    android:layout_marginTop="15dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Desarrollado por"
+                        android:textColor="#fff"
+                        android:textSize="18sp"
+                        android:paddingTop="10dp"/>
+
+                    <ImageView
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:src="@drawable/ksf_flat"
+                        android:layout_gravity="center"
+                        android:paddingTop="10dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Kotlin Software Factory"
+                        android:textColor="#fff"
+                        android:textSize="18dp"
+                        android:gravity="center"
+                        android:paddingTop="5dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="www.ksfactory.com.ve"
+                        android:textColor="#fff"
+                        android:gravity="center"
+                        android:paddingBottom="20dp"/>
+                </LinearLayout>
 
             </LinearLayout>
 

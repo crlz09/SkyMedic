@@ -274,7 +274,7 @@ public class layout_clinica  extends AppCompatActivity implements NavigationView
                 .into(new Target() {
                     @Override
                     public void onBitmapLoaded (final Bitmap bitmap, Picasso.LoadedFrom from){
-            /* Save the bitmap or do something with it here */
+                        /* Save the bitmap or do something with it here */
 
                         //Set it in the ImageView
                         im.setImageBitmap(bitmap);

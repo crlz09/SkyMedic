@@ -72,8 +72,6 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait">
 
-
-
         </activity>
 
 
@@ -83,9 +81,7 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait">
 
-
-
-                   </activity>
+        </activity>
 
 
 
@@ -153,7 +149,6 @@
 
 
         </activity>
-
 
 
     </application>

@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -52,7 +53,7 @@ public class MainActivity extends AppCompatActivity
     LinearLayout layoutDoctores, doctores;
     public ArrayList<String> ciudades=new ArrayList<>();
      SwipeRefreshLayout refrescar;
-public String consulta;
+    public String consulta;
     // json array response url
     private String urlJsonArry = "http://arsus.nnbiocliniccenter.com.ve/json/last5.php?last5";
 
@@ -72,7 +73,11 @@ public String consulta;
         setContentView(R.layout.activity_main);
 
         pDialog = new ProgressDialog(this);
+        pDialog.setIndeterminate(true);
         pDialog.setMessage("Actualizando");
+        pDialog.show();
+        pDialog.setIndeterminateDrawable(getResources().getDrawable(R.drawable.loading));
+        //pDialog.setContentView(R.layout.dialog);
         pDialog.setCancelable(false);
 
         textView  = (TextView) findViewById(R.id.textView);
