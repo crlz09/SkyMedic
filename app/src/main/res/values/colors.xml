@@ -9,4 +9,5 @@
     <color name="fondoBlanco">#ffffff</color>
     <color name="FondoGris">#f2f2f2</color>
     <color name="Letras">#8a000000</color>
+    <color name="verdeCli">#8CCB3F</color>
 </resources>

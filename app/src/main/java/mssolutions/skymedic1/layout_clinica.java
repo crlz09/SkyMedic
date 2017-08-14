@@ -139,7 +139,7 @@ public class layout_clinica  extends AppCompatActivity implements NavigationView
         picasso(img,image);
         final AlertDialog.Builder builder =
 
-               new AlertDialog.Builder(this).setView(image);
+               new AlertDialog.Builder((this), R.style.NewDialog).setView(image);
 
 
         builder.setOnDismissListener(new DialogInterface.OnDismissListener() {
@@ -193,6 +193,7 @@ public class layout_clinica  extends AppCompatActivity implements NavigationView
 
         final MenuItem searchItem = menu.findItem(R.id.action_search);
         final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+        searchItem.setVisible(false);
         searchView.setQueryHint("Busca doctores, clinicas, farmacias");
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override

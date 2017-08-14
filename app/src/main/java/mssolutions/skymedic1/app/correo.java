@@ -1,9 +1,7 @@
 package mssolutions.skymedic1.app;
 import android.os.StrictMode;
-import android.widget.Toast;
 
 import java.util.Properties;
-//import java.util.function.Function;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -13,7 +11,7 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-import mssolutions.skymedic1.MainActivity;
+//import java.util.function.Function;
 
 
 /**
@@ -48,22 +46,7 @@ try {final String username = "biodiagsantaelena@gmail.com";
         message.setRecipients(Message.RecipientType.TO,
                 InternetAddress.parse(receptor));
         message.setSubject(asunto);
-
-         /*   message.setText("Maldita perra,"
-                    + "\n\n No spam to my email, please!");*/
-
-                  /*  MimeBodyPart messageBodyPart = new MimeBodyPart();
-
-                    Multipart multipart = new MimeMultipart();
-
-                    messageBodyPart = new MimeBodyPart();
-                    String file = "path of file to be attached";
-                    String fileName = "attachmentName";
-                    DataSource source = new FileDataSource(file);
-                    messageBodyPart.setDataHandler(new DataHandler(source));
-                    messageBodyPart.setFileName(fileName);
-                    multipart.addBodyPart(messageBodyPart);*/
-        mensaje = nombre+"\n"+telefono+ "\n\n" + mensaje;
+        mensaje = nombre+'\n' +telefono+ '\n'+'\n' + mensaje;
         message.setContent(mensaje,"text/html; charset=utf-8");
 
         Transport.send(message);
@@ -77,7 +60,7 @@ try {final String username = "biodiagsantaelena@gmail.com";
     }
 
 } catch (Exception e) {
-        respuesta="Error al enviar";
+        respuesta="Error al enviar, verifique su conexión";
         throw new RuntimeException(e);
 
     }

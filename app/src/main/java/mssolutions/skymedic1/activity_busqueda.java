@@ -76,8 +76,13 @@ public class activity_busqueda extends AppCompatActivity
         textView  = (TextView) findViewById(R.id.textView);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        pDialog = new ProgressDialog(this);
+        pDialog = new ProgressDialog((this), R.style.NewDialog);
+        pDialog.setIndeterminate(true);
         pDialog.setMessage("Actualizando");
+        pDialog.show();
+        pDialog.setIndeterminateDrawable(getResources().getDrawable(R.drawable.loading));
+
+        //pDialog.setContentView(R.layout.dialog);
         pDialog.setCancelable(false);
 
         LinearLayout filtro=(LinearLayout) findViewById(R.id.filtr);

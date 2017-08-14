@@ -73,7 +73,7 @@ public class activity_clinica extends AppCompatActivity
 
     LinearLayout clinicas, layoutclinicas;
 
-    String tipo;
+    String tipo,queryy;
 
     String urlconsulta= "http://arsus.nnbiocliniccenter.com.ve/json/last5.php?tipo=";
 
@@ -87,8 +87,13 @@ public class activity_clinica extends AppCompatActivity
         textView = (TextView) findViewById(R.id.textView);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        pDialog = new ProgressDialog(this);
+        pDialog = new ProgressDialog((this), R.style.NewDialog);
+        pDialog.setIndeterminate(true);
         pDialog.setMessage("Actualizando");
+        pDialog.show();
+        pDialog.setIndeterminateDrawable(getResources().getDrawable(R.drawable.loading));
+
+        //pDialog.setContentView(R.layout.dialog);
         pDialog.setCancelable(false);
 
         LinearLayout filtro = (LinearLayout) findViewById(R.id.filtro);
@@ -108,7 +113,7 @@ public class activity_clinica extends AppCompatActivity
             UrlFinal=urlconsulta+tipo;
         }
 
-
+        queryy = getIntent().getExtras().getString("Query");
         Busqueda = getIntent().getExtras().getBoolean("busqueda");
 
 
@@ -191,8 +196,8 @@ public class activity_clinica extends AppCompatActivity
                 ListSong.putExtra("tipito",tipo);
                 ListSong.putExtra("busqueda", true);
                 ListSong.putExtra("Descripcion", descripcion);
-
-                finish();
+                ListSong.putExtra("Query",query);
+                //finish();
                 startActivity(ListSong);
 
 
@@ -459,13 +464,14 @@ public class activity_clinica extends AppCompatActivity
                 } else if (error instanceof ParseError) {
                     Intent abreme = new Intent(getApplicationContext(),activity_error.class);
                     finish();
+                    abreme.putExtra("Consulta",queryy);
                     startActivity(abreme);
                     message = "Parsing error! Please try again after some time!!";
                 } else if (error instanceof NoConnectionError) {
                     message = "Cannot connect to Internet...Please check your connection!";
                 } else if (error instanceof TimeoutError) {
                     Intent abreme = new Intent(getApplicationContext(),activity_internet.class);
-
+                    finish();
                     startActivity(abreme);
                     message = "Connection TimeOut! Please check your internet connection.";
                 }
@@ -568,28 +574,29 @@ public class activity_clinica extends AppCompatActivity
                 String message = null;
                 if (error instanceof NetworkError) {
                     message = "Cannot connect to Internet...Please check your connection!";
-                    Intent abreme = new Intent(getApplicationContext(),error_main.class);
+                    Intent abreme = new Intent(getApplicationContext(),activity_internet.class);
 
                     startActivity(abreme);
                 } else if (error instanceof ServerError) {
                     message = "The server could not be found. Please try again after some time!!";
-                    Intent abreme = new Intent(getApplicationContext(),error_main.class);
+                    Intent abreme = new Intent(getApplicationContext(),activity_internet.class);
 
                     startActivity(abreme);
                 } else if (error instanceof AuthFailureError) {
                     message = "Cannot connect to Internet...Please check your connection!";
-                    Intent abreme = new Intent(getApplicationContext(),error_main.class);
+                    Intent abreme = new Intent(getApplicationContext(),activity_internet.class);
 
                     startActivity(abreme);
                 } else if (error instanceof ParseError) {
                     Intent abreme = new Intent(getApplicationContext(),activity_error.class);
+                    abreme.putExtra("Consulta",queryy);
                     finish();
                     startActivity(abreme);
                     message = "Parsing error! Please try again after some time!!";
                 } else if (error instanceof NoConnectionError) {
                     message = "Cannot connect to Internet...Please check your connection!";
                 } else if (error instanceof TimeoutError) {
-                    Intent abreme = new Intent(getApplicationContext(),error_main.class);
+                    Intent abreme = new Intent(getApplicationContext(),activity_internet.class);
 
                     startActivity(abreme);
                     message = "Connection TimeOut! Please check your internet connection.";

@@ -72,11 +72,12 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        pDialog = new ProgressDialog(this);
+        pDialog = new ProgressDialog((this), R.style.NewDialog);
         pDialog.setIndeterminate(true);
-        pDialog.setMessage("Actualizando");
+        pDialog.setMessage("");
         pDialog.show();
         pDialog.setIndeterminateDrawable(getResources().getDrawable(R.drawable.loading));
+
         //pDialog.setContentView(R.layout.dialog);
         pDialog.setCancelable(false);
 
@@ -247,6 +248,7 @@ public class MainActivity extends AppCompatActivity
 
         final MenuItem searchItem = menu.findItem(R.id.action_search);
         final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+
         //permite modificar el hint que el EditText muestra por defecto
         searchView.setQueryHint("Busca doctores, clinicas, farmacias");
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {

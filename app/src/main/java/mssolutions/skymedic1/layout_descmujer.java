@@ -98,6 +98,7 @@ public class layout_descmujer extends AppCompatActivity implements NavigationVie
 
         final MenuItem searchItem = menu.findItem(R.id.action_search);
         final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+        searchItem.setVisible(false);
         //permite modificar el hint que el EditText muestra por defecto
         searchView.setQueryHint("Busca doctores, clinicas, farmacias");
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {

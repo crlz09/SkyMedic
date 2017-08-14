@@ -90,8 +90,13 @@ public class especialidad extends AppCompatActivity
         textView  = (TextView) findViewById(R.id.textView);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        pDialog = new ProgressDialog(this);
+        pDialog = new ProgressDialog((this), R.style.NewDialog);
+        pDialog.setIndeterminate(true);
         pDialog.setMessage("Actualizando");
+        pDialog.show();
+        pDialog.setIndeterminateDrawable(getResources().getDrawable(R.drawable.loading));
+
+        //pDialog.setContentView(R.layout.dialog);
         pDialog.setCancelable(false);
 
         LinearLayout filtro=(LinearLayout) findViewById(R.id.filtro);
@@ -371,7 +376,7 @@ public class especialidad extends AppCompatActivity
                 hidepDialog();
                 String message = null;
                 if (error instanceof NetworkError) {
-                    Toast.makeText(especialidad.this, "7", Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(especialidad.this, "7", Toast.LENGTH_SHORT).show();
 
                     message = "Cannot connect to Internet...Please check your connection!";
                     Intent abreme = new Intent(getApplicationContext(),activity_internet.class);
@@ -379,21 +384,21 @@ public class especialidad extends AppCompatActivity
                     startActivity(abreme);
                     finish();
                 } else if (error instanceof ServerError) {
-                    Toast.makeText(especialidad.this, "8", Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(especialidad.this, "8", Toast.LENGTH_SHORT).show();
 
                     message = "The server could not be found. Please try again after some time!!";
                     Intent abreme = new Intent(getApplicationContext(),activity_internet.class);
                     finish();
                     startActivity(abreme);
                 } else if (error instanceof AuthFailureError) {
-                    Toast.makeText(especialidad.this, "9", Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(especialidad.this, "9", Toast.LENGTH_SHORT).show();
 
                     message = "Cannot connect to Internet...Please check your connection!";
                     Intent abreme = new Intent(getApplicationContext(),activity_internet.class);
                     finish();
                     startActivity(abreme);
                 } else if (error instanceof ParseError) {
-                    Toast.makeText(especialidad.this, "10", Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(especialidad.this, "10", Toast.LENGTH_SHORT).show();
 
                     Intent abreme = new Intent(getApplicationContext(),activity_error.class);
                     finish();
@@ -401,11 +406,11 @@ public class especialidad extends AppCompatActivity
                     startActivity(abreme);
                     message = "Parsing error! Please try again after some time!!";
                 } else if (error instanceof NoConnectionError) {
-                    Toast.makeText(especialidad.this, "11", Toast.LENGTH_SHORT).show();
+                  //  Toast.makeText(especialidad.this, "11", Toast.LENGTH_SHORT).show();
 
                     message = "Cannot connect to Internet...Please check your connection!";
                 } else if (error instanceof TimeoutError) {
-                    Toast.makeText(especialidad.this, "12", Toast.LENGTH_SHORT).show();
+                 //   Toast.makeText(especialidad.this, "12", Toast.LENGTH_SHORT).show();
 
                     Intent abreme = new Intent(getApplicationContext(),activity_internet.class);
                     finish();
@@ -516,26 +521,26 @@ public class especialidad extends AppCompatActivity
                 hidepDialog();
                 String message = null;
                 if (error instanceof NetworkError) {
-                    Toast.makeText(especialidad.this, "1", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(especialidad.this, "1", Toast.LENGTH_SHORT).show();
                     message = "Cannot connect to Internet...Please check your connection!";
                     Intent abreme = new Intent(getApplicationContext(),activity_internet.class);
                     finish();
                     startActivity(abreme);
                 } else if (error instanceof ServerError) {
-                    Toast.makeText(especialidad.this, "2", Toast.LENGTH_SHORT).show();
+                  //  Toast.makeText(especialidad.this, "2", Toast.LENGTH_SHORT).show();
                     message = "The server could not be found. Please try again after some time!!";
                     Intent abreme = new Intent(getApplicationContext(),activity_internet.class);
                     finish();
                     startActivity(abreme);
                 } else if (error instanceof AuthFailureError) {
-                    Toast.makeText(especialidad.this, "3", Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(especialidad.this, "3", Toast.LENGTH_SHORT).show();
 
                     message = "Cannot connect to Internet...Please check your connection!";
                     Intent abreme = new Intent(getApplicationContext(),activity_internet.class);
                     finish();
                     startActivity(abreme);
                 } else if (error instanceof ParseError) {
-                    Toast.makeText(especialidad.this, "4", Toast.LENGTH_SHORT).show();
+                 //   Toast.makeText(especialidad.this, "4", Toast.LENGTH_SHORT).show();
 
                     Intent abreme = new Intent(getApplicationContext(),activity_error.class);
                     finish();
@@ -547,7 +552,7 @@ public class especialidad extends AppCompatActivity
 
                     message = "Cannot connect to Internet...Please check your connection!";
                 } else if (error instanceof TimeoutError) {
-                    Toast.makeText(especialidad.this, "6", Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(especialidad.this, "6", Toast.LENGTH_SHORT).show();
 
                     Intent abreme = new Intent(getApplicationContext(),activity_internet.class);
                     finish();
