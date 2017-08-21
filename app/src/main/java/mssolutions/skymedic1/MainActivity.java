@@ -373,8 +373,8 @@ public class MainActivity extends AppCompatActivity
 
                                 ultimos[i][0]= id;
                                 ultimos[i][1]= nombre;
-                                ultimos[i][2]= especialidad;
-                                ultimos[i][3]= ciudad;
+                                ultimos[i][2]= especialidad.toUpperCase();
+                                ultimos[i][3]= ciudad.toUpperCase();
                                 ultimos[i][4]=sexo;
                                 ultimos[i][5]=direccion;
                                 ultimos[i][6]=telefono;

@@ -418,7 +418,7 @@ public class activity_clinica extends AppCompatActivity
                                     }
                                 });
                                 textoNombre.setText(nombre);
-                                ciudadcli.setText(ciudad+" - " + estado);
+                                ciudadcli.setText(ciudad.toUpperCase() + " - " + estado.toUpperCase());
 
                                 Picasso.with(getApplicationContext()).load(img).fit().into(imagen);
 
@@ -546,7 +546,7 @@ public class activity_clinica extends AppCompatActivity
                         }
                     });
                     textoNombre.setText(nombre);
-                    ciudadcli.setText(ciudad + " - " + estado);
+                    ciudadcli.setText(ciudad.toUpperCase() + " - " + estado.toUpperCase());
 
                     Picasso.with(getApplicationContext()).load(img).into(imagen);
 

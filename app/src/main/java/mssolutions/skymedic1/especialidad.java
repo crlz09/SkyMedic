@@ -637,7 +637,7 @@ public class especialidad extends AppCompatActivity
 
                         String laurl="http://arsus.nnbiocliniccenter.com.ve/json/last5.php?esp="+descripcion+"&ciudad="+items[which];
 
-                        makeJsonArrayRequest(laurl,"ubicacion");
+                        //makeJsonArrayRequest(laurl,"ubicacion");
 
                         Intent ListSong = new Intent(getApplicationContext(), especialidad.class);
                         ListSong.putExtra("urlfinal123",laurl);

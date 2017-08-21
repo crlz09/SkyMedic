@@ -49,9 +49,9 @@ public class layout_clinica  extends AppCompatActivity implements NavigationView
 
         nombre=getIntent().getExtras().getString("Nombre");
         img=getIntent().getExtras().getString("Imagen");
-        ciudad=getIntent().getExtras().getString("Ciudad");
+        ciudad=getIntent().getExtras().getString("Ciudad").toUpperCase();
         desc=getIntent().getExtras().getString("Descripcion");
-        estado=getIntent().getExtras().getString("Estado");
+        estado=getIntent().getExtras().getString("Estado").toUpperCase();
         direccion=getIntent().getExtras().getString("Direccion");
         correo=getIntent().getExtras().getString("Correo");
         telefono=getIntent().getExtras().getString("Telefono");

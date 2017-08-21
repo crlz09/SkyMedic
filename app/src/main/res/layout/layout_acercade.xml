@@ -15,8 +15,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
-        tools:context="mssolutions.skymedic1.MainActivity"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:context="mssolutions.skymedic1.MainActivity">
 
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
@@ -41,80 +41,87 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:layout_marginTop="30dp"
-                android:background="@drawable/border"
                 android:orientation="vertical"
                 android:paddingTop="20dp">
 
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center"
-                    android:layout_marginBottom="15dp"
-                    android:src="@drawable/iconsky" />
-
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="SkyMedic Venezuela"
-                    android:textSize="18dp" />
+                    android:layout_height="match_parent"
+                    android:background="@drawable/border"
+                    android:orientation="vertical"
+                    android:paddingBottom="20dp"
+                    android:paddingTop="20dp">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Versión 1.0.1"
-                    android:textSize="18dp" />
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="15dp"
+                        android:src="@drawable/iconsky" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:autoLink="web"
-                    android:clickable="true"
-                    android:gravity="center"
-                    android:text="www.skymedic.com.ve"
-                    android:textSize="18dp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="SkyMedic Venezuela"
+                        android:textSize="18dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Versión 1.0.1"
+                        android:textSize="18dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autoLink="web"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text="www.skymedic.com.ve"
+                        android:textSize="18dp" />
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
                     android:background="#3f3f3f"
-                    android:orientation="vertical"
-                    android:layout_marginTop="15dp">
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
+                        android:paddingTop="10dp"
                         android:text="Desarrollado por"
                         android:textColor="#fff"
-                        android:textSize="18sp"
-                        android:paddingTop="10dp"/>
+                        android:textSize="18sp" />
 
                     <ImageView
                         android:layout_width="150dp"
                         android:layout_height="150dp"
-                        android:src="@drawable/ksf_flat"
                         android:layout_gravity="center"
-                        android:paddingTop="10dp"/>
+                        android:paddingTop="10dp"
+                        android:src="@drawable/ksf_flat" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingTop="5dp"
                         android:text="Kotlin Software Factory"
                         android:textColor="#fff"
-                        android:textSize="18dp"
-                        android:gravity="center"
-                        android:paddingTop="5dp"/>
+                        android:textSize="18dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="www.ksfactory.com.ve"
-                        android:textColor="#fff"
                         android:gravity="center"
-                        android:paddingBottom="20dp"/>
+                        android:paddingBottom="20dp"
+                        android:text="www.ksfactory.com.ve"
+                        android:textColor="#fff" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -132,4 +139,4 @@
         app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/activity_main_drawer" />
 
-</android.support.v4.widget.DrawerLayout>
+    </android.support.v4.widget.DrawerLayout>
