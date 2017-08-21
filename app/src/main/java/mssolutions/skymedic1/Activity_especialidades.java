@@ -65,7 +65,7 @@ public class Activity_especialidades  extends AppCompatActivity implements Navig
            }
 
 
-             Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+           Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
            setSupportActionBar(toolbar);
 
            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -77,7 +77,7 @@ public class Activity_especialidades  extends AppCompatActivity implements Navig
            NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
            navigationView.setNavigationItemSelectedListener(this);
            navigationView.getMenu().getItem(0).setChecked(true);
-           getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+           //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
        }
 
