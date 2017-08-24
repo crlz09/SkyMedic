@@ -39,7 +39,6 @@ import com.squareup.picasso.Target;
 public class layout_clinica  extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
 
-    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -139,18 +138,8 @@ public class layout_clinica  extends AppCompatActivity implements NavigationView
         picasso(img,image);
         final AlertDialog.Builder builder =
 
-               new AlertDialog.Builder((this), R.style.NewDialog).setView(image);
+               new AlertDialog.Builder((this), R.style.ForImageView).setView(image);
 
-
-        builder.setOnDismissListener(new DialogInterface.OnDismissListener() {
-
-            @Override
-            public void onDismiss(DialogInterface dialog) {
-
-                   /* builder.setView(null);
-                dialog.dismiss();*/
-            }
-        });
 
 
         imagen.setOnClickListener(new View.OnClickListener() {
