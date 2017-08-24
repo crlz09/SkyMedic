@@ -43,9 +43,10 @@ public class layout_descmujer extends AppCompatActivity implements NavigationVie
         TextView telefonoTV = (TextView) findViewById(R.id.telefono_dra);
         TextView correoTV = (TextView) findViewById(R.id.correo_dra);
         TextView telf = (TextView) findViewById(R.id.telefono_dra);
-
+        TextView ciud= (TextView) findViewById(R.id.ciudad_dra);
+        ciud.setText(ciu);
         nombreTV.setText(nom);
-        especialidadTV.setText(esp+" - "+ciu);
+        especialidadTV.setText(esp);
         direccionTV.setText(dir);
         telefonoTV.setText(tel);
         correoTV.setText(cor);

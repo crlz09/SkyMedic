@@ -43,9 +43,11 @@ public class layout_deschombre  extends AppCompatActivity implements NavigationV
         TextView telefonoTV = (TextView) findViewById(R.id.telefono_doctor);
         TextView correoTV = (TextView) findViewById(R.id.correo_doctor);
         TextView telf = (TextView) findViewById(R.id.telefono_doctor);
+        TextView ciud= (TextView) findViewById(R.id.ciudad_dr);
+        ciud.setText(ciu);
         nombreTV.setText(nom);
         especialidadTV.setText(esp);
-        direccionTV.setText(dir+"\n"+ciu);
+        direccionTV.setText(dir);
         telefonoTV.setText(tel);
         correoTV.setText(cor);
 

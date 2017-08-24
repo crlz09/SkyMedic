@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity
 
         pDialog = new ProgressDialog((this), R.style.NewDialog);
         pDialog.setIndeterminate(true);
-        pDialog.setMessage("");
+        pDialog.setMessage("Actualizando");
         pDialog.show();
         pDialog.setIndeterminateDrawable(getResources().getDrawable(R.drawable.loading));
 
