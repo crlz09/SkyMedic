@@ -16,6 +16,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,7 +51,12 @@ public class layout_deschombre  extends AppCompatActivity implements NavigationV
         direccionTV.setText(dir);
         telefonoTV.setText(tel);
         correoTV.setText(cor);
-
+        LinearLayout laycorreo = (LinearLayout) findViewById(R.id.layoutcorreohombre);
+        if (cor.length()>5){
+            laycorreo.setVisibility(View.VISIBLE);
+        }else {
+            laycorreo.setVisibility(View.INVISIBLE);
+        }
         ImageView sky=(ImageView) findViewById(R.id.skyenhombre);
         sky.setOnClickListener(new View.OnClickListener() {
             @Override

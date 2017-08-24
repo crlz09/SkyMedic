@@ -16,6 +16,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,6 +46,13 @@ public class layout_descmujer extends AppCompatActivity implements NavigationVie
         TextView telf = (TextView) findViewById(R.id.telefono_dra);
         TextView ciud= (TextView) findViewById(R.id.ciudad_dra);
         ciud.setText(ciu);
+        LinearLayout laycorreo = (LinearLayout) findViewById(R.id.layoutcorreomujer);
+        if (cor.length()>5){
+            laycorreo.setVisibility(View.VISIBLE);
+        }else {
+            laycorreo.setVisibility(View.INVISIBLE);
+        }
+
         nombreTV.setText(nom);
         especialidadTV.setText(esp);
         direccionTV.setText(dir);
