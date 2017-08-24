@@ -111,7 +111,7 @@ public class layout_clinica  extends AppCompatActivity implements NavigationView
         });
 
         TextView usuarioInstagram = (TextView)findViewById(R.id.usuInstagram);
-
+usuarioInstagram.setText("@"+instagram);
         usuarioInstagram.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
