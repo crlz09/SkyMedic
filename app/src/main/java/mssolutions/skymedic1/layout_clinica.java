@@ -33,7 +33,7 @@ import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
 /**
- * Created by marci y CARLOSMOLINA on 14/6/2017.
+ * Created by marci y CARLOSMOLINA on 14/6/2017..
  */
 
 public class layout_clinica  extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{

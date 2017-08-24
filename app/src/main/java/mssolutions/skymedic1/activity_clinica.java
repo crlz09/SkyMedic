@@ -367,7 +367,7 @@ public class activity_clinica extends AppCompatActivity
                         Log.d(TAG, response.toString());
 
                         try {
-                            // Parsing json array response
+                            // Parsing json array response.
                             // loop through each json object
                             jsonResponse = "";
                             for (int i = 0; i < response.length(); i++) {
