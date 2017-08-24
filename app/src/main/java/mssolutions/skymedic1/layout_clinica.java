@@ -109,7 +109,7 @@ public class layout_clinica  extends AppCompatActivity implements NavigationView
                 startActivity(i);
             }
         });
-//ig
+
         TextView usuarioInstagram = (TextView)findViewById(R.id.usuInstagram);
 usuarioInstagram.setText("@"+instagram);
         usuarioInstagram.setOnClickListener(new View.OnClickListener() {
