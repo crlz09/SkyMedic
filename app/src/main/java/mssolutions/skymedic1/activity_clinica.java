@@ -376,7 +376,7 @@ public class activity_clinica extends AppCompatActivity
                                         .get(i);
                                 String id= person.getString("idCli");
                                 final String nombre = person.getString("nombreCli");
-                                final String img = person.getString("urlCli");
+                                final String img = "http://arsus.nnbiocliniccenter.com.ve/json/" +person.getString("urlCli");
                                 final String desc = person.getString("descripcionCli");
                                 final String ciudad = person.getString("ciudadCli");
                                 final String estado= person.getString("estadoCli");
@@ -505,7 +505,7 @@ public class activity_clinica extends AppCompatActivity
                     // response will be a json object
                     final String id= response.getString("idCli");
                     final String nombre = response.getString("nombreCli");
-                    final String img = response.getString("urlCli");
+                    final String img = "http://arsus.nnbiocliniccenter.com.ve/json/" + response.getString("urlCli");
                     final String desc = response.getString("descripcionCli");
                     final String ciudad = response.getString("ciudadCli");
                     final String estado= response.getString("estadoCli");

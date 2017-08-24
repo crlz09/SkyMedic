@@ -60,9 +60,6 @@ public class layout_clinica  extends AppCompatActivity implements NavigationView
         longitud=getIntent().getExtras().getString("Longitud");
         tipo=getIntent().getExtras().getString("tipo");
 
-
-
-
         final ImageView imagen = (ImageView) findViewById(R.id.imgclinicaf);
         TextView TVnombre = (TextView) findViewById(R.id.nombreclinicaf);
         TextView TVciudad = (TextView) findViewById(R.id.ciudadclinicaf);
@@ -112,6 +109,8 @@ public class layout_clinica  extends AppCompatActivity implements NavigationView
         });
 
         TextView usuarioInstagram = (TextView)findViewById(R.id.usuInstagram);
+
+        usuarioInstagram.setText("@"+instagram);
 
         usuarioInstagram.setOnClickListener(new View.OnClickListener() {
             @Override
