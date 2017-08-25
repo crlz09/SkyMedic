@@ -52,10 +52,12 @@ public class layout_deschombre  extends AppCompatActivity implements NavigationV
         telefonoTV.setText(tel);
         correoTV.setText(cor);
         LinearLayout laycorreo = (LinearLayout) findViewById(R.id.layoutcorreohombre);
+        LinearLayout layaux= (LinearLayout) findViewById(R.id.layauxhombre);
         if (cor.length()>5){
             laycorreo.setVisibility(View.VISIBLE);
         }else {
             laycorreo.setVisibility(View.INVISIBLE);
+            layaux.setBackgroundResource(R.drawable.border5);
         }
         ImageView sky=(ImageView) findViewById(R.id.skyenhombre);
         sky.setOnClickListener(new View.OnClickListener() {

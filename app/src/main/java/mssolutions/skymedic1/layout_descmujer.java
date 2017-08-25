@@ -47,10 +47,12 @@ public class layout_descmujer extends AppCompatActivity implements NavigationVie
         TextView ciud= (TextView) findViewById(R.id.ciudad_dra);
         ciud.setText(ciu);
         LinearLayout laycorreo = (LinearLayout) findViewById(R.id.layoutcorreomujer);
+        LinearLayout layaux= (LinearLayout) findViewById(R.id.layauxmujer);
         if (cor.length()>5){
             laycorreo.setVisibility(View.VISIBLE);
-        }else {
+                    }else {
             laycorreo.setVisibility(View.INVISIBLE);
+            layaux.setBackgroundResource(R.drawable.border5);
         }
 
         nombreTV.setText(nom);
