@@ -90,7 +90,7 @@ public class especialidad extends AppCompatActivity
         textView  = (TextView) findViewById(R.id.textView);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        pDialog = new ProgressDialog((this), R.style.NewDialog);
+        pDialog = new ProgressDialog(this);
         pDialog.setIndeterminate(true);
         pDialog.setMessage("Actualizando");
         pDialog.show();
@@ -98,6 +98,7 @@ public class especialidad extends AppCompatActivity
 
         //pDialog.setContentView(R.layout.dialog);
         pDialog.setCancelable(false);
+
 
         LinearLayout filtro=(LinearLayout) findViewById(R.id.filtro);
         filtro.setOnClickListener(new View.OnClickListener() {
@@ -119,9 +120,15 @@ public class especialidad extends AppCompatActivity
               descripcion=descripcion.replace(" ","%20");
           }
 
+              if(desc.contains("%20")){
+                  desc=desc.replace("%20"," ");
+              }
+
           } catch (Exception e) {
 
           }
+
+
 
 
         iconoX = getIntent().getExtras().getInt("icono");

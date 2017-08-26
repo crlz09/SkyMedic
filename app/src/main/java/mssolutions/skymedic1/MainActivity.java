@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        pDialog = new ProgressDialog((this), R.style.NewDialog);
+        pDialog = new ProgressDialog(this);
         pDialog.setIndeterminate(true);
         pDialog.setMessage("Actualizando");
         pDialog.show();

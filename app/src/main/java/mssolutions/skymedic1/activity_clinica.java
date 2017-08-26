@@ -87,7 +87,7 @@ public class activity_clinica extends AppCompatActivity
         textView = (TextView) findViewById(R.id.textView);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        pDialog = new ProgressDialog((this), R.style.NewDialog);
+        pDialog = new ProgressDialog(this);
         pDialog.setIndeterminate(true);
         pDialog.setMessage("Actualizando");
         pDialog.show();
@@ -95,6 +95,7 @@ public class activity_clinica extends AppCompatActivity
 
         //pDialog.setContentView(R.layout.dialog);
         pDialog.setCancelable(false);
+
 
         LinearLayout filtro = (LinearLayout) findViewById(R.id.filtro);
         filtro.setOnClickListener(new View.OnClickListener() {
