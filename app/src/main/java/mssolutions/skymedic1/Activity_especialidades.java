@@ -171,7 +171,9 @@ public class Activity_especialidades  extends AppCompatActivity implements Navig
             finish();
 
         } else if (id == R.id.nav_acercade) {
-
+            Intent ListSong = new Intent(getApplicationContext(), layout_acercade.class);
+            ListSong.putExtra("IDMENU",id);
+            startActivity(ListSong);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

@@ -557,7 +557,7 @@ public void doctor(String nombre, String especialidad, String direccion,
                                 vete.putExtra("ciudad",ciudad);
                                 startActivity(vete);
                             }else {
-                                Intent vete = new Intent(getApplicationContext(),layout_deschombre.class);
+                                Intent vete = new Intent(getApplicationContext(),layout_descmujer.class);
                                 vete.putExtra("nombre",nombre);
                                 vete.putExtra("especialidad",especialidad);
                                 vete.putExtra("direccion",direccion);

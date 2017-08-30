@@ -23,8 +23,8 @@ public class correo {
 public String enviarcorreo(String receptor, String asunto, String mensaje, String telefono, String nombre){
 
 //username password receptor asunto mensaje
-try {final String username = "biodiagsantaelena@gmail.com";
-    final String password = "n7608440";
+try {final String username = "info.skymedic@gmail.com";
+    final String password = "32sky4951m";
     StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
     StrictMode.setThreadPolicy(policy);
 
@@ -42,11 +42,14 @@ try {final String username = "biodiagsantaelena@gmail.com";
             });
     try {
         Message message = new MimeMessage(session);
-        message.setFrom(new InternetAddress("biodiagsantaelena@gmail.com"));
+        message.setFrom(new InternetAddress("info.skymedic@gmail.com"));
         message.setRecipients(Message.RecipientType.TO,
-                InternetAddress.parse(receptor));
+                InternetAddress.parse("skymedicap@gmail.com"));
         message.setSubject(asunto);
-        mensaje = nombre+'\n' +telefono+ '\n'+'\n' + mensaje;
+        mensaje = "Nombre y Apellido:" + "<br>" + nombre+ "<br>" + "<br>" +
+                "Correo Electronico:" + "<br>" + receptor + "<br>" +"<br>" +
+                "N° de Teléfono:" + "<br>" + telefono+ "<br>" + "<br>" +
+                "ASUNTO DEL MENSAE:" +"<br>" +  mensaje;
         message.setContent(mensaje,"text/html; charset=utf-8");
 
         Transport.send(message);

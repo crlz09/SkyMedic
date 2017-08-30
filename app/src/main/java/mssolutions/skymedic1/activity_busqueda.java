@@ -208,6 +208,9 @@ public class activity_busqueda extends AppCompatActivity
             startActivity(ListSong);
 
             } else if (id == R.id.nav_acercade) {
+            Intent ListSong = new Intent(getApplicationContext(), layout_acercade.class);
+            ListSong.putExtra("IDMENU",id);
+            startActivity(ListSong);
 
         }
 
@@ -259,11 +262,15 @@ public class activity_busqueda extends AppCompatActivity
                                 switch (sexo){
                                     case "Hombre":
                                         imagen.setImageResource(R.mipmap.doctor);
+                                        especi.setTextColor(Color.parseColor("#FF6DBCD4"));
                                         break;
 
                                     case "Mujer":
                                         imagen.setImageResource(R.mipmap.doctora);
+                                        especi.setTextColor(Color.parseColor("#FFFE797A"));
                                         break;
+
+
                                 }
 
                                 doctores.setOnClickListener(new View.OnClickListener() {
@@ -279,7 +286,7 @@ public class activity_busqueda extends AppCompatActivity
                                             vete.putExtra("ciudad",ciudad);
                                             startActivity(vete);
                                         }else {
-                                            Intent vete = new Intent(getApplicationContext(),layout_deschombre.class);
+                                            Intent vete = new Intent(getApplicationContext(),layout_descmujer.class);
                                             vete.putExtra("nombre",nombre);
                                             vete.putExtra("especialidad",especialidad);
                                             vete.putExtra("direccion",direccion);
@@ -407,9 +414,10 @@ public class activity_busqueda extends AppCompatActivity
                                 vete.putExtra("telefono",telefono);
                                 vete.putExtra("correo",correo);
                                 vete.putExtra("ciudad",ciudad);
+
                                 startActivity(vete);
                             }else {
-                                Intent vete = new Intent(getApplicationContext(),layout_deschombre.class);
+                                Intent vete = new Intent(getApplicationContext(),layout_descmujer.class);
                                 vete.putExtra("nombre",nombre);
                                 vete.putExtra("especialidad",especialidad);
                                 vete.putExtra("direccion",direccion);

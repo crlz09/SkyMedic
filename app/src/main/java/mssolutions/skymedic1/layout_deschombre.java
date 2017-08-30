@@ -179,7 +179,9 @@ public class layout_deschombre  extends AppCompatActivity implements NavigationV
             startActivity(ListSong);
 
         } else if (id == R.id.nav_acercade) {
-
+            Intent ListSong = new Intent(getApplicationContext(), layout_acercade.class);
+            ListSong.putExtra("IDMENU",id);
+            startActivity(ListSong);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
