@@ -26,7 +26,6 @@ import android.widget.Toast;
 
 public class layout_deschombre  extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,13 +51,16 @@ public class layout_deschombre  extends AppCompatActivity implements NavigationV
         telefonoTV.setText(tel);
         correoTV.setText(cor);
         LinearLayout laycorreo = (LinearLayout) findViewById(R.id.layoutcorreohombre);
-        LinearLayout layaux= (LinearLayout) findViewById(R.id.layauxhombre);
+        LinearLayout layaux= (LinearLayout) findViewById(R.id.layouxhombre);
+        LinearLayout layoutDireccion = (LinearLayout) findViewById(R.id.direccionHombre);
+
         if (cor.length()>5){
             laycorreo.setVisibility(View.VISIBLE);
         }else {
             laycorreo.setVisibility(View.INVISIBLE);
-            layaux.setBackgroundResource(R.drawable.border5);
+            layoutDireccion.setBackgroundResource(R.drawable.border5);
         }
+
         ImageView sky=(ImageView) findViewById(R.id.skyenhombre);
         sky.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,7 +72,6 @@ public class layout_deschombre  extends AppCompatActivity implements NavigationV
                 finish();
             }
         });
-
 
         final String num ="tel:"+ telf.getText().toString();
         telf.setOnClickListener(new View.OnClickListener() {

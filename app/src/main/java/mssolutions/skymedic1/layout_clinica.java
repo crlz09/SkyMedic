@@ -59,6 +59,37 @@ public class layout_clinica  extends AppCompatActivity implements NavigationView
         longitud=getIntent().getExtras().getString("Longitud");
         tipo=getIntent().getExtras().getString("tipo");
 
+        LinearLayout telefonoCli = (LinearLayout)findViewById(R.id.telefonoCli);
+        LinearLayout correoCli = (LinearLayout)findViewById(R.id.correoCli);
+        LinearLayout instagramCli = (LinearLayout)findViewById(R.id.instagramCli);
+        LinearLayout direccionCli = (LinearLayout)findViewById(R.id.direccionCli);
+
+
+        if (telefono.length()>0){
+            telefonoCli.setVisibility(View.VISIBLE);
+        }else {
+            telefonoCli.setVisibility(View.GONE);
+        }
+
+        if (correo.length()>0){
+            correoCli.setVisibility(View.VISIBLE);
+        }else {
+            correoCli.setVisibility(View.GONE);
+        }
+
+        if (instagram.length()>0){
+            instagramCli.setVisibility(View.VISIBLE);
+        }else {
+            instagramCli.setVisibility(View.GONE);
+        }
+
+        if (direccion.length()>0){
+            direccionCli.setVisibility(View.VISIBLE);
+        }else {
+            direccionCli.setVisibility(View.GONE);
+        }
+
+
 
 
 
@@ -80,6 +111,8 @@ public class layout_clinica  extends AppCompatActivity implements NavigationView
             setTitle("FARMACIAS");
 
         }
+
+
 
         Picasso.with(getApplicationContext()).load(img).fit().into(imagen);
         TVnombre.setText(nombre);
@@ -116,7 +149,7 @@ public class layout_clinica  extends AppCompatActivity implements NavigationView
         });
 
         TextView usuarioInstagram = (TextView)findViewById(R.id.usuInstagram);
-usuarioInstagram.setText("@"+instagram);
+        usuarioInstagram.setText("@"+instagram);
         usuarioInstagram.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

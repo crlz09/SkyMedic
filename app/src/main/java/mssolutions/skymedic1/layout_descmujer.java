@@ -50,7 +50,7 @@ public class layout_descmujer extends AppCompatActivity implements NavigationVie
         LinearLayout layaux= (LinearLayout) findViewById(R.id.layauxmujer);
         if (cor.length()>5){
             laycorreo.setVisibility(View.VISIBLE);
-                    }else {
+        }else {
             laycorreo.setVisibility(View.INVISIBLE);
             layaux.setBackgroundResource(R.drawable.border5);
         }

@@ -96,7 +96,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/layauxhombre"
+                android:id="@+id/layouxhombre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -126,6 +126,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/direccionHombre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
