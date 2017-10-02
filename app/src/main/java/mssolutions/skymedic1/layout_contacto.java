@@ -57,7 +57,6 @@ public class layout_contacto extends AppCompatActivity implements NavigationView
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_contacto);
 
-
         pDialog = new ProgressDialog(this);
         pDialog.setMessage("Por favor espera...");
         pDialog.setCancelable(false);
@@ -69,7 +68,12 @@ public class layout_contacto extends AppCompatActivity implements NavigationView
         final EditText ETtelefono = (EditText) findViewById(R.id.ETtelefono);
         final EditText ETmensaje = (EditText) findViewById(R.id.ETmensaje);
 
-        final EnviarCorreo enviarCorreo = new EnviarCorreo();
+        if (asunto.equals("Suscribase")) {
+            setTitle(asunto);
+        }
+        else setTitle("Tu Opinion");
+
+            final EnviarCorreo enviarCorreo = new EnviarCorreo();
 
 
 
@@ -155,6 +159,7 @@ public class layout_contacto extends AppCompatActivity implements NavigationView
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         if (asunto.equals("Suscribase")){
+
             navigationView.getMenu().getItem(3).setChecked(true);
         }else {navigationView.getMenu().getItem(4).setChecked(true); }
 

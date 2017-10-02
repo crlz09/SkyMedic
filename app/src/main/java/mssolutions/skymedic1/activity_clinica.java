@@ -465,10 +465,20 @@ public class activity_clinica extends AppCompatActivity
 
                     startActivity(abreme);
                 } else if (error instanceof ParseError) {
-                    Intent abreme = new Intent(getApplicationContext(),activity_error.class);
-                    finish();
-                    abreme.putExtra("Consulta",queryy);
-                    startActivity(abreme);
+
+                    if (tipo.equals("CLINICA")){
+                        Intent abreme = new Intent(getApplicationContext(),activity_error.class);
+                        finish();
+                        abreme.putExtra("Consulta",queryy);
+                        startActivity(abreme);
+                    } else {
+                        Intent abreme = new Intent(getApplicationContext(),error_farma.class);
+                        finish();
+
+                        startActivity(abreme);
+
+
+                    }
                     message = "Parsing error! Please try again after some time!!";
                 } else if (error instanceof NoConnectionError) {
                     message = "Cannot connect to Internet...Please check your connection!";
@@ -591,10 +601,19 @@ public class activity_clinica extends AppCompatActivity
 
                     startActivity(abreme);
                 } else if (error instanceof ParseError) {
-                    Intent abreme = new Intent(getApplicationContext(),activity_error.class);
-                    abreme.putExtra("Consulta",queryy);
-                    finish();
-                    startActivity(abreme);
+                    if (tipo.equals("CLINICA")){
+                        Intent abreme = new Intent(getApplicationContext(),activity_error.class);
+                        finish();
+                        abreme.putExtra("Consulta",queryy);
+                        startActivity(abreme);
+                    } else {
+                        Intent abreme = new Intent(getApplicationContext(),error_farma.class);
+                        finish();
+
+                        startActivity(abreme);
+
+
+                    }
                     message = "Parsing error! Please try again after some time!!";
                 } else if (error instanceof NoConnectionError) {
                     message = "Cannot connect to Internet...Please check your connection!";
