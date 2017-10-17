@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity
      SwipeRefreshLayout refrescar;
     public String consulta;
     // json array response url
-    private String urlJsonArry = "http://arsus.nnbiocliniccenter.com.ve/json/last5.php?last5";
+    private String urlJsonArry = "http://skymedic.com.ve/json/last5.php?last5";
 
 
     private static String TAG = MainActivity.class.getSimpleName();
@@ -258,7 +258,7 @@ public class MainActivity extends AppCompatActivity
                 try{query=query.replace(" ","%20");
 
                 }catch (Exception ex){}
-                String urlfinal= "http://arsus.nnbiocliniccenter.com.ve/json/last5.php?nombreee="+query;
+                String urlfinal= "http://skymedic.com.ve/json/last5.php?nombreee="+query;
 
                // makeJsonArrayRequest(urlfinal);
                 Intent busca = new Intent(getApplicationContext(),activity_busqueda.class);

@@ -139,7 +139,7 @@ public class activity_busqueda extends AppCompatActivity
                 }catch (Exception ex){}
 
 
-                String urlfinal= "http://arsus.nnbiocliniccenter.com.ve/json/last5.php?nombreee="+query;
+                String urlfinal= "http://skymedic.com.ve/json/last5.php?nombreee="+query;
 
                 Intent ListSong = new Intent(getApplicationContext(), activity_busqueda.class);
                 ListSong.putExtra("Url",urlfinal);
@@ -552,7 +552,7 @@ public class activity_busqueda extends AppCompatActivity
                         }
 
 
-                        String laurl="http://arsus.nnbiocliniccenter.com.ve/json/last5.php?n="+consulta+"&f="+items[which];
+                        String laurl="http://skymedic.com.ve/json/last5.php?n="+consulta+"&f="+items[which];
                         makeJsonArrayRequest(laurl,"ubicacion");
                         Intent ListSong = new Intent(getApplicationContext(), activity_busqueda.class);
                         ListSong.putExtra("Url",laurl);

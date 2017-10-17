@@ -75,7 +75,7 @@ public class activity_clinica extends AppCompatActivity
 
     String tipo,queryy;
 
-    String urlconsulta= "http://arsus.nnbiocliniccenter.com.ve/json/last5.php?tipo=";
+    String urlconsulta= "http://skymedic.com.ve/json/last5.php?tipo=";
 
 
 
@@ -189,7 +189,7 @@ public class activity_clinica extends AppCompatActivity
                 } catch (Exception ex) {
                 }
 
-                String Urlnomytipo= "http://arsus.nnbiocliniccenter.com.ve/json/last5.php?nomcli=";
+                String Urlnomytipo= "http://skymedic.com.ve/json/last5.php?nomcli=";
                 String urlfinal = Urlnomytipo + query + "&nombre=" + query + "&type=" + tipo;
 
                 Intent ListSong = new Intent(getApplicationContext(), activity_clinica.class);
@@ -326,12 +326,12 @@ public class activity_clinica extends AppCompatActivity
                         }
 
                         String laurl;
-                        laurl="http://arsus.nnbiocliniccenter.com.ve/json/last5.php?ciudadcli="+items[which]+"&typeof="+tipo;
+                        laurl="http://skymedic.com.ve/json/last5.php?ciudadcli="+items[which]+"&typeof="+tipo;
 
                         if (descripcion==null){
-                             laurl="http://arsus.nnbiocliniccenter.com.ve/json/last5.php?ciudadcli="+items[which]+"&typeof="+tipo;
+                             laurl="http://skymedic.com.ve/json/last5.php?ciudadcli="+items[which]+"&typeof="+tipo;
                         }else {
-                             laurl ="http://arsus.nnbiocliniccenter.com.ve/json/last5.php?cicl="+items[which]+"&nocli="+descripcion+
+                             laurl ="http://skymedic.com.ve/json/last5.php?cicl="+items[which]+"&nocli="+descripcion+
                                     "&typeofc="+tipo;
                         }
 
@@ -379,7 +379,7 @@ public class activity_clinica extends AppCompatActivity
                                         .get(i);
                                 String id= person.getString("idCli");
                                 final String nombre = person.getString("nombreCli");
-                                final String img = "http://arsus.nnbiocliniccenter.com.ve/json/"+person.getString("urlCli");
+                                final String img = "http://skymedic.com.ve/json/"+person.getString("urlCli");
                                 final String desc = person.getString("descripcionCli");
                                 final String ciudad = person.getString("ciudadCli");
                                 final String estado= person.getString("estadoCli");
@@ -518,7 +518,7 @@ public class activity_clinica extends AppCompatActivity
                     // response will be a json object
                     final String id= response.getString("idCli");
                     final String nombre = response.getString("nombreCli");
-                    final String img = "http://arsus.nnbiocliniccenter.com.ve/json/"+response.getString("urlCli");
+                    final String img = "http://skymedic.com.ve/json/"+response.getString("urlCli");
                     final String desc = response.getString("descripcionCli");
                     final String ciudad = response.getString("ciudadCli");
                     final String estado= response.getString("estadoCli");

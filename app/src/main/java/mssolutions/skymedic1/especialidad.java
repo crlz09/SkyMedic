@@ -55,8 +55,8 @@ public class especialidad extends AppCompatActivity
     public ArrayList<String> ciudades=new ArrayList<>();
     public ArrayList<String> nuevasciudades=new ArrayList<>();
 
-    private String urlJsonArry = "http://arsus.nnbiocliniccenter.com.ve/json/last5.php?especialidad=";
-    private String urlnombreydesc="http://arsus.nnbiocliniccenter.com.ve/json/last5.php?especi=";
+    private String urlJsonArry = "http://skymedic.com.ve/json/last5.php?especialidad=";
+    private String urlnombreydesc="http://skymedic.com.ve/json/last5.php?especi=";
 
     private static String TAG = MainActivity.class.getSimpleName();
 
@@ -648,7 +648,7 @@ public class especialidad extends AppCompatActivity
                             items[i]=nuevasciudades.get(i).replace(" ","%20");
                         }
 
-                        String laurl="http://arsus.nnbiocliniccenter.com.ve/json/last5.php?esp="+descripcion+"&ciudad="+items[which];
+                        String laurl="http://skymedic.com.ve/json/last5.php?esp="+descripcion+"&ciudad="+items[which];
 
                         //makeJsonArrayRequest(laurl,"ubicacion");
 

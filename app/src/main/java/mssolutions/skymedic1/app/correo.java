@@ -3,6 +3,7 @@ import android.os.StrictMode;
 
 import java.util.Properties;
 
+import javax.mail.Authenticator;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
@@ -34,12 +35,15 @@ try {final String username = "info.skymedic@gmail.com";
     props.put("mail.smtp.host", "smtp.gmail.com");
     props.put("mail.smtp.port", "587");
 
-    Session session = Session.getInstance(props,
+    /*Session session = Session.getInstance(props,
             new javax.mail.Authenticator() {
                 protected PasswordAuthentication getPasswordAuthentication() {
                     return new PasswordAuthentication(username, password);
                 }
-            });
+            });*/
+
+    Session session = Session.getInstance(props, new GMailAuthenticator(username, password));
+
     try {
         Message message = new MimeMessage(session);
         message.setFrom(new InternetAddress("info.skymedic@gmail.com"));
@@ -70,5 +74,20 @@ try {final String username = "info.skymedic@gmail.com";
 
 
         return respuesta;
+    }
+}
+
+class GMailAuthenticator extends Authenticator {
+    String user;
+    String pw;
+    public GMailAuthenticator (String username, String password)
+    {
+        super();
+        this.user = username;
+        this.pw = password;
+    }
+    public PasswordAuthentication getPasswordAuthentication()
+    {
+        return new PasswordAuthentication(user, pw);
     }
 }
