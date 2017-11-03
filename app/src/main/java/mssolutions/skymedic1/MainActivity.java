@@ -250,7 +250,7 @@ public class MainActivity extends AppCompatActivity
         final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
 
         //permite modificar el hint que el EditText muestra por defecto
-        searchView.setQueryHint("Busca doctores, clinicas, farmacias");
+        searchView.setQueryHint("Busca doctores");
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {

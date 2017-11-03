@@ -9,8 +9,8 @@ android {
         applicationId "mssolutions.skymedic1"
         minSdkVersion 14
         targetSdkVersion 25
-        versionCode 2
-        versionName "1.0.1"
+        versionCode 4
+        versionName "1.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

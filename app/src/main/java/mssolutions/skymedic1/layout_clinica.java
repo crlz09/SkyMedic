@@ -221,7 +221,7 @@ public class layout_clinica  extends AppCompatActivity implements NavigationView
         final MenuItem searchItem = menu.findItem(R.id.action_search);
         final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
         searchItem.setVisible(false);
-        searchView.setQueryHint("Busca doctores, clinicas, farmacias");
+        searchView.setQueryHint("Busca clinicas");
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
